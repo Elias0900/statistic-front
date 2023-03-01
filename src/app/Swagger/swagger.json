@@ -1,0 +1,1374 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9393",
+      "description": "Generated server url"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": [
+
+      ]
+    }
+  ],
+  "paths": {
+    "/api/stats": {
+      "get": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "tousLesStats",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StatsDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "modifierStats",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatsDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/match": {
+      "get": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "tousLesMatchs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "modifierMatch",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatchDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "newMatch",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatchDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/joueur": {
+      "get": {
+        "tags": [
+          "joueur-controller"
+        ],
+        "operationId": "tousLesJoueurs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/JoueurDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "joueur-controller"
+        ],
+        "operationId": "modifierJoueur",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JoueurDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JoueurDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "joueur-controller"
+        ],
+        "operationId": "newJoueur",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JoueurDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JoueurDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/equipe": {
+      "get": {
+        "tags": [
+          "equipe-controller"
+        ],
+        "operationId": "getAll",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EquipeDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "equipe-controller"
+        ],
+        "operationId": "modifierJoueur_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipeDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipeDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "equipe-controller"
+        ],
+        "operationId": "nouvelEquipe",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipeDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipeDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/{id}": {
+      "get": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "findByJoueurId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StatsDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "newStats",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatsDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "suppression",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/troispoints/{id}": {
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "troispoints",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/rebondoff/{id}": {
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "rebondOff",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/rebonddeff/{id}": {
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "rebondDeff",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/rateproche/{id}": {
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "tirRate",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/rateloin/{id}": {
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "rateTroispoints",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/passe/{id}": {
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "passe",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/lfrate/{id}": {
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "lfRate",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/lf/{id}": {
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "lf",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/fautes/{id}": {
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "faute",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/deuxpoints/{id}": {
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "ajoutdeuxpoints",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/contres/{id}": {
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "contres",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/bp/{id}": {
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "bp",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/total/{id}": {
+      "get": {
+        "tags": [
+          "total-controller"
+        ],
+        "operationId": "totalPoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/total/troispoints/{id}": {
+      "get": {
+        "tags": [
+          "total-controller"
+        ],
+        "operationId": "troispoints_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/total/rebond/{id}": {
+      "get": {
+        "tags": [
+          "total-controller"
+        ],
+        "operationId": "rebond",
+        "parameters": [
+          {
+            "name": "jDto",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/TotalDTO"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/total/pourcentagelf/{id}": {
+      "get": {
+        "tags": [
+          "total-controller"
+        ],
+        "operationId": "pourcentageLF",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/total/pourcentage/{id}": {
+      "get": {
+        "tags": [
+          "total-controller"
+        ],
+        "operationId": "pourcentage",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/total/passe/{id}": {
+      "get": {
+        "tags": [
+          "total-controller"
+        ],
+        "operationId": "passe_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/total/deuxpoints/{id}": {
+      "get": {
+        "tags": [
+          "total-controller"
+        ],
+        "operationId": "deuxpoints",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/stat/{id}": {
+      "get": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "findById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/joueur/{id}": {
+      "get": {
+        "tags": [
+          "joueur-controller"
+        ],
+        "operationId": "findById_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JoueurDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "joueur-controller"
+        ],
+        "operationId": "suppression_2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/match/{id}": {
+      "delete": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "suppression_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/equipe/{id}": {
+      "delete": {
+        "tags": [
+          "equipe-controller"
+        ],
+        "operationId": "suppression_3",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "StatsDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fautes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "passeD": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ballonPerdu": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paniersProche": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tirRateProche": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contre": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paniersLoins": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tirRateLoin": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rebondOff": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rebondDeff": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lfRate": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lfMarque": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "joueurId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "totalId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "MatchDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "domicileId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "exterieurId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "scoreDomicile": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "scoreExterieur": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "JoueurDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nom": {
+            "type": "string"
+          },
+          "prenom": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "equipeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "statId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "EquipeDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nomEquipe": {
+            "type": "string"
+          },
+          "joueurId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "matchId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "TotalDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "totalPoints": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRebonds": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPasseD": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pourcentageDeuxPts": {
+            "type": "number",
+            "format": "double"
+          },
+          "pourcentageTroisPts": {
+            "type": "number",
+            "format": "double"
+          },
+          "pourcentage": {
+            "type": "number",
+            "format": "double"
+          },
+          "statsId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "name": "BearerAuth",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
