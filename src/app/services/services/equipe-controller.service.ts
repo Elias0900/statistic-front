@@ -34,8 +34,9 @@ export class EquipeControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   getAll$Response(params?: {
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<Array<EquipeDto>>> {
 
     const rb = new RequestBuilder(this.rootUrl, EquipeControllerService.GetAllPath, 'get');
@@ -45,7 +46,7 @@ export class EquipeControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -55,17 +56,18 @@ export class EquipeControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `getAll$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   getAll(params?: {
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<Array<EquipeDto>> {
 
-    return this.getAll$Response(params).pipe(
+    return this.getAll$Response(params,context).pipe(
       map((r: StrictHttpResponse<Array<EquipeDto>>) => r.body as Array<EquipeDto>)
     );
   }
@@ -82,9 +84,10 @@ export class EquipeControllerService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   modifierJoueur1$Response(params: {
-    context?: HttpContext
     body: EquipeDto
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<EquipeDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, EquipeControllerService.ModifierJoueur1Path, 'put');
@@ -95,7 +98,7 @@ export class EquipeControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -105,18 +108,19 @@ export class EquipeControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `modifierJoueur1$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   modifierJoueur1(params: {
-    context?: HttpContext
     body: EquipeDto
-  }
+  },
+  context?: HttpContext
+
 ): Observable<EquipeDto> {
 
-    return this.modifierJoueur1$Response(params).pipe(
+    return this.modifierJoueur1$Response(params,context).pipe(
       map((r: StrictHttpResponse<EquipeDto>) => r.body as EquipeDto)
     );
   }
@@ -133,9 +137,10 @@ export class EquipeControllerService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   nouvelEquipe$Response(params: {
-    context?: HttpContext
     body: EquipeDto
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<EquipeDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, EquipeControllerService.NouvelEquipePath, 'post');
@@ -146,7 +151,7 @@ export class EquipeControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -156,18 +161,72 @@ export class EquipeControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `nouvelEquipe$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   nouvelEquipe(params: {
-    context?: HttpContext
     body: EquipeDto
-  }
+  },
+  context?: HttpContext
+
 ): Observable<EquipeDto> {
 
-    return this.nouvelEquipe$Response(params).pipe(
+    return this.nouvelEquipe$Response(params,context).pipe(
+      map((r: StrictHttpResponse<EquipeDto>) => r.body as EquipeDto)
+    );
+  }
+
+  /**
+   * Path part for operation getById
+   */
+  static readonly GetByIdPath = '/api/equipe/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getById()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getById$Response(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<EquipeDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, EquipeControllerService.GetByIdPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<EquipeDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `getById$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getById(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<EquipeDto> {
+
+    return this.getById$Response(params,context).pipe(
       map((r: StrictHttpResponse<EquipeDto>) => r.body as EquipeDto)
     );
   }
@@ -185,8 +244,9 @@ export class EquipeControllerService extends BaseService {
    */
   suppression3$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, EquipeControllerService.Suppression3Path, 'delete');
@@ -197,7 +257,7 @@ export class EquipeControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -207,18 +267,19 @@ export class EquipeControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `suppression3$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   suppression3(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<number> {
 
-    return this.suppression3$Response(params).pipe(
+    return this.suppression3$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }

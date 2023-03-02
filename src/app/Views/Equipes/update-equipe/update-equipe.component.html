@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <tr>
+          <th>Modifier une Equipe</th>
+        </tr>
+        <tr>
+          <td><label>Nom</label></td>
+          <td><input type="text" [(ngModel)]="equipe.nomEquipe" name="titreBloc" class="form-control" placeholder="{{equipe.nomEquipe}}"></td>
+          <td><a class="btn btn-danger" (click)="supprimerEquipe()">Supprimer</a></td>
+        </tr>
+      </table>
+      <div class="form-group">
+        <td class="list-group-item-action">
+          <button (click)="modifierEquipe()" class="btn btn-outline-primary">Modifier</button>
+        </td>
+        <td class="list-group-item-action">
+          <button class="btn btn-outline-secondary"><a href="javascript:history.go(-1)">Annuler</a></button>
+        </td>
+      </div>
+    </div>
+  </div>
+</div>
+

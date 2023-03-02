@@ -1,0 +1,32 @@
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Liste des Equipes</th>
+        </tr>
+        </thead>
+        <tbody *ngIf="equipes.length > 0">
+        <tr>
+          <td><b>Nom</b></td>
+          <td><b></b></td>
+          <td><b></b></td>
+          <td></td>
+        </tr>
+        <tr *ngFor="let equipe of equipes ">
+          <td>{{equipe.nomEquipe}}</td>
+          <td><a href="" class="btn btn-outline-success" [routerLink]="['/detail-equipe', equipe.id]">Détails</a></td>
+          <td><a class="btn btn-danger" >Supprimer</a></td>
+          <td><a  class="btn btn-success" [routerLink]="['/update-equipe', equipe.id]">Modifier</a></td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="form-group" >
+      </div>
+      <button class="btn btn-primary" [routerLink]="['/new-team']">Ajouter une equipe</button>
+    </div>
+  </div>
+
+
+

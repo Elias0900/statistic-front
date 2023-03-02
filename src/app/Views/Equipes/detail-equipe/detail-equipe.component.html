@@ -1,0 +1,31 @@
+<div class="card shadow mb-4">
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Liste des Joueurs</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let j of joueurs">
+      <tr>
+        <td>{{j.nom}}</td>
+        <td>{{j.prenom}}</td>
+        <td>{{j.numero}}</td>
+        <td><a class="btn btn-danger">Supprimer</a></td>
+        <td><a class="btn btn-success" >Modifier</a></td>
+      </tr>
+      </tbody>
+      <td><a href="" class="btn btn-outline-primary mt-2" >Ajouter un Joueur</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td ><a href="javascript:history.go(-1)" class="btn btn-outline-secondary mt-2">Annuler</a></td>
+    </table>
+
+    <table class="table table-striped">
+      <ng-template #noJoueurs>
+        <div class="alert-danger">Il n'y a pas de joueurs</div>
+      </ng-template>
+    </table>
+  </div>
+</div>

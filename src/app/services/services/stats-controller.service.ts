@@ -34,8 +34,9 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   tousLesStats$Response(params?: {
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<Array<StatsDto>>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.TousLesStatsPath, 'get');
@@ -45,7 +46,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -55,17 +56,18 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `tousLesStats$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   tousLesStats(params?: {
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<Array<StatsDto>> {
 
-    return this.tousLesStats$Response(params).pipe(
+    return this.tousLesStats$Response(params,context).pipe(
       map((r: StrictHttpResponse<Array<StatsDto>>) => r.body as Array<StatsDto>)
     );
   }
@@ -83,9 +85,10 @@ export class StatsControllerService extends BaseService {
    */
   modifierStats$Response(params: {
     id: number;
-    context?: HttpContext
     body: StatsDto
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.ModifierStatsPath, 'put');
@@ -97,7 +100,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -107,19 +110,20 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `modifierStats$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   modifierStats(params: {
     id: number;
-    context?: HttpContext
     body: StatsDto
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.modifierStats$Response(params).pipe(
+    return this.modifierStats$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -137,8 +141,9 @@ export class StatsControllerService extends BaseService {
    */
   findByJoueurId$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<Array<StatsDto>>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.FindByJoueurIdPath, 'get');
@@ -149,7 +154,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -159,18 +164,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `findByJoueurId$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   findByJoueurId(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<Array<StatsDto>> {
 
-    return this.findByJoueurId$Response(params).pipe(
+    return this.findByJoueurId$Response(params,context).pipe(
       map((r: StrictHttpResponse<Array<StatsDto>>) => r.body as Array<StatsDto>)
     );
   }
@@ -188,9 +194,10 @@ export class StatsControllerService extends BaseService {
    */
   newStats$Response(params: {
     id: number;
-    context?: HttpContext
     body: StatsDto
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.NewStatsPath, 'post');
@@ -202,7 +209,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -212,19 +219,20 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `newStats$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   newStats(params: {
     id: number;
-    context?: HttpContext
     body: StatsDto
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.newStats$Response(params).pipe(
+    return this.newStats$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -242,8 +250,9 @@ export class StatsControllerService extends BaseService {
    */
   suppression$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.SuppressionPath, 'delete');
@@ -254,7 +263,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -264,18 +273,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `suppression$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   suppression(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<number> {
 
-    return this.suppression$Response(params).pipe(
+    return this.suppression$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -293,8 +303,9 @@ export class StatsControllerService extends BaseService {
    */
   troispoints$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.TroispointsPath, 'post');
@@ -305,7 +316,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -315,18 +326,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `troispoints$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   troispoints(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.troispoints$Response(params).pipe(
+    return this.troispoints$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -344,8 +356,9 @@ export class StatsControllerService extends BaseService {
    */
   rebondOff$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.RebondOffPath, 'post');
@@ -356,7 +369,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -366,18 +379,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `rebondOff$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   rebondOff(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.rebondOff$Response(params).pipe(
+    return this.rebondOff$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -395,8 +409,9 @@ export class StatsControllerService extends BaseService {
    */
   rebondDeff$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.RebondDeffPath, 'post');
@@ -407,7 +422,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -417,18 +432,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `rebondDeff$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   rebondDeff(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.rebondDeff$Response(params).pipe(
+    return this.rebondDeff$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -446,8 +462,9 @@ export class StatsControllerService extends BaseService {
    */
   tirRate$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.TirRatePath, 'post');
@@ -458,7 +475,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -468,18 +485,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `tirRate$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   tirRate(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.tirRate$Response(params).pipe(
+    return this.tirRate$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -497,8 +515,9 @@ export class StatsControllerService extends BaseService {
    */
   rateTroispoints$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.RateTroispointsPath, 'post');
@@ -509,7 +528,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -519,18 +538,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `rateTroispoints$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   rateTroispoints(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.rateTroispoints$Response(params).pipe(
+    return this.rateTroispoints$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -548,8 +568,9 @@ export class StatsControllerService extends BaseService {
    */
   passe$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.PassePath, 'post');
@@ -560,7 +581,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -570,18 +591,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `passe$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   passe(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.passe$Response(params).pipe(
+    return this.passe$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -599,8 +621,9 @@ export class StatsControllerService extends BaseService {
    */
   lfRate$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.LfRatePath, 'post');
@@ -611,7 +634,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -621,18 +644,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `lfRate$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   lfRate(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.lfRate$Response(params).pipe(
+    return this.lfRate$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -650,8 +674,9 @@ export class StatsControllerService extends BaseService {
    */
   lf$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.LfPath, 'post');
@@ -662,7 +687,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -672,18 +697,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `lf$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   lf(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.lf$Response(params).pipe(
+    return this.lf$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -701,8 +727,9 @@ export class StatsControllerService extends BaseService {
    */
   faute$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.FautePath, 'post');
@@ -713,7 +740,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -723,18 +750,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `faute$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   faute(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.faute$Response(params).pipe(
+    return this.faute$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -752,8 +780,9 @@ export class StatsControllerService extends BaseService {
    */
   ajoutdeuxpoints$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.AjoutdeuxpointsPath, 'post');
@@ -764,7 +793,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -774,18 +803,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `ajoutdeuxpoints$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   ajoutdeuxpoints(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.ajoutdeuxpoints$Response(params).pipe(
+    return this.ajoutdeuxpoints$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -803,8 +833,9 @@ export class StatsControllerService extends BaseService {
    */
   contres$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.ContresPath, 'post');
@@ -815,7 +846,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -825,18 +856,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `contres$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   contres(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.contres$Response(params).pipe(
+    return this.contres$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -854,8 +886,9 @@ export class StatsControllerService extends BaseService {
    */
   bp$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.BpPath, 'post');
@@ -866,7 +899,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -876,18 +909,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `bp$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   bp(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.bp$Response(params).pipe(
+    return this.bp$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -905,8 +939,9 @@ export class StatsControllerService extends BaseService {
    */
   findById$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.FindByIdPath, 'get');
@@ -917,7 +952,7 @@ export class StatsControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -927,18 +962,19 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `findById$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   findById(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StatsDto> {
 
-    return this.findById$Response(params).pipe(
+    return this.findById$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }

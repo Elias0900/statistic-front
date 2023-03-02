@@ -34,8 +34,9 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   tousLesMatchs$Response(params?: {
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<Array<MatchDto>>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.TousLesMatchsPath, 'get');
@@ -45,7 +46,7 @@ export class MatchControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -55,17 +56,18 @@ export class MatchControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `tousLesMatchs$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   tousLesMatchs(params?: {
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<Array<MatchDto>> {
 
-    return this.tousLesMatchs$Response(params).pipe(
+    return this.tousLesMatchs$Response(params,context).pipe(
       map((r: StrictHttpResponse<Array<MatchDto>>) => r.body as Array<MatchDto>)
     );
   }
@@ -82,9 +84,10 @@ export class MatchControllerService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   modifierMatch$Response(params: {
-    context?: HttpContext
     body: MatchDto
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<MatchDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.ModifierMatchPath, 'put');
@@ -95,7 +98,7 @@ export class MatchControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -105,18 +108,19 @@ export class MatchControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `modifierMatch$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   modifierMatch(params: {
-    context?: HttpContext
     body: MatchDto
-  }
+  },
+  context?: HttpContext
+
 ): Observable<MatchDto> {
 
-    return this.modifierMatch$Response(params).pipe(
+    return this.modifierMatch$Response(params,context).pipe(
       map((r: StrictHttpResponse<MatchDto>) => r.body as MatchDto)
     );
   }
@@ -133,9 +137,10 @@ export class MatchControllerService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   newMatch$Response(params: {
-    context?: HttpContext
     body: MatchDto
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<MatchDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.NewMatchPath, 'post');
@@ -146,7 +151,7 @@ export class MatchControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -156,18 +161,19 @@ export class MatchControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `newMatch$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   newMatch(params: {
-    context?: HttpContext
     body: MatchDto
-  }
+  },
+  context?: HttpContext
+
 ): Observable<MatchDto> {
 
-    return this.newMatch$Response(params).pipe(
+    return this.newMatch$Response(params,context).pipe(
       map((r: StrictHttpResponse<MatchDto>) => r.body as MatchDto)
     );
   }
@@ -185,8 +191,9 @@ export class MatchControllerService extends BaseService {
    */
   suppression1$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.Suppression1Path, 'delete');
@@ -197,7 +204,7 @@ export class MatchControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -207,18 +214,19 @@ export class MatchControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `suppression1$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   suppression1(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<number> {
 
-    return this.suppression1$Response(params).pipe(
+    return this.suppression1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }

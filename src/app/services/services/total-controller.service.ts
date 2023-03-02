@@ -35,8 +35,9 @@ export class TotalControllerService extends BaseService {
    */
   totalPoint$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.TotalPointPath, 'get');
@@ -47,7 +48,7 @@ export class TotalControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -57,18 +58,19 @@ export class TotalControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `totalPoint$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   totalPoint(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<number> {
 
-    return this.totalPoint$Response(params).pipe(
+    return this.totalPoint$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -86,8 +88,9 @@ export class TotalControllerService extends BaseService {
    */
   troispoints1$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.Troispoints1Path, 'get');
@@ -98,7 +101,7 @@ export class TotalControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -108,18 +111,19 @@ export class TotalControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `troispoints1$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   troispoints1(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<number> {
 
-    return this.troispoints1$Response(params).pipe(
+    return this.troispoints1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -138,8 +142,9 @@ export class TotalControllerService extends BaseService {
   rebond$Response(params: {
     jDto: TotalDto;
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.RebondPath, 'get');
@@ -151,7 +156,7 @@ export class TotalControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -161,7 +166,7 @@ export class TotalControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `rebond$Response()` instead.
    *
    * This method doesn't expect any request body.
@@ -169,11 +174,12 @@ export class TotalControllerService extends BaseService {
   rebond(params: {
     jDto: TotalDto;
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<number> {
 
-    return this.rebond$Response(params).pipe(
+    return this.rebond$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -191,8 +197,9 @@ export class TotalControllerService extends BaseService {
    */
   pourcentageLf$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.PourcentageLfPath, 'get');
@@ -203,7 +210,7 @@ export class TotalControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -213,18 +220,19 @@ export class TotalControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `pourcentageLf$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   pourcentageLf(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<number> {
 
-    return this.pourcentageLf$Response(params).pipe(
+    return this.pourcentageLf$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -242,8 +250,9 @@ export class TotalControllerService extends BaseService {
    */
   pourcentage$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.PourcentagePath, 'get');
@@ -254,7 +263,7 @@ export class TotalControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -264,18 +273,19 @@ export class TotalControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `pourcentage$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   pourcentage(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<number> {
 
-    return this.pourcentage$Response(params).pipe(
+    return this.pourcentage$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -293,8 +303,9 @@ export class TotalControllerService extends BaseService {
    */
   passe1$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.Passe1Path, 'get');
@@ -305,7 +316,7 @@ export class TotalControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -315,18 +326,19 @@ export class TotalControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `passe1$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   passe1(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<number> {
 
-    return this.passe1$Response(params).pipe(
+    return this.passe1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -344,8 +356,9 @@ export class TotalControllerService extends BaseService {
    */
   deuxpoints$Response(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.DeuxpointsPath, 'get');
@@ -356,7 +369,7 @@ export class TotalControllerService extends BaseService {
     return this.http.request(rb.build({
       responseType: 'json',
       accept: 'application/json',
-      context: params?.context
+      context: context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
@@ -366,18 +379,19 @@ export class TotalControllerService extends BaseService {
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `deuxpoints$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
   deuxpoints(params: {
     id: number;
-    context?: HttpContext
-  }
+  },
+  context?: HttpContext
+
 ): Observable<number> {
 
-    return this.deuxpoints$Response(params).pipe(
+    return this.deuxpoints$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }

@@ -1,3 +1,4 @@
+
 {
   "openapi": "3.0.1",
   "info": {
@@ -1116,12 +1117,75 @@
         }
       }
     },
-    "/api/match/{id}": {
+    "/api/joueur/equipe/{id}": {
+      "get": {
+        "tags": [
+          "joueur-controller"
+        ],
+        "operationId": "joueurParTeam",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/JoueurDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/equipe/{id}": {
+      "get": {
+        "tags": [
+          "equipe-controller"
+        ],
+        "operationId": "getById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipeDTO"
+                }
+              }
+            }
+          }
+        }
+      },
       "delete": {
         "tags": [
-          "match-controller"
+          "equipe-controller"
         ],
-        "operationId": "suppression_1",
+        "operationId": "suppression_3",
         "parameters": [
           {
             "name": "id",
@@ -1148,12 +1212,12 @@
         }
       }
     },
-    "/api/equipe/{id}": {
+    "/api/match/{id}": {
       "delete": {
         "tags": [
-          "equipe-controller"
+          "match-controller"
         ],
-        "operationId": "suppression_3",
+        "operationId": "suppression_1",
         "parameters": [
           {
             "name": "id",
@@ -1255,11 +1319,11 @@
             "type": "integer",
             "format": "int64"
           },
-          "domicileId": {
+          "equipeDomicileId": {
             "type": "integer",
             "format": "int64"
           },
-          "exterieurId": {
+          "equipeExterieurId": {
             "type": "integer",
             "format": "int64"
           },

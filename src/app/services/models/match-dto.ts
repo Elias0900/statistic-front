@@ -2,8 +2,8 @@
 /* eslint-disable */
 export interface MatchDto {
   date?: string;
-  domicileId?: number;
-  exterieurId?: number;
+  equipeDomicileId?: number;
+  equipeExterieurId?: number;
   id?: number;
   scoreDomicile?: number;
   scoreExterieur?: number;

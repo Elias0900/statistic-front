@@ -1,0 +1,15 @@
+<div class="container">
+  <div>
+    <h2>Ajouter une Equipe :</h2>
+  </div>
+  <form>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Nom</label>
+      <input type="text" [(ngModel)]="equipe.nomEquipe" name="nomEquipe" class="form-control">
+    </div>
+    <div class="mt-2 col-2 ">
+      <button type="submit" (click)="save()" class="btn btn-success mr-2">Ajouter</button>
+      <button class="btn btn-outline-secondary ml-2" (click)="cancel()">Annuler</button>
+    </div>
+  </form>
+</div>
