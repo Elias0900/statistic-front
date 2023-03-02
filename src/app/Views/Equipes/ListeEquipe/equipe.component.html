@@ -16,7 +16,7 @@
         <tr *ngFor="let equipe of equipes ">
           <td>{{equipe.nomEquipe}}</td>
           <td><a href="" class="btn btn-outline-success" [routerLink]="['/detail-equipe', equipe.id]">Détails</a></td>
-          <td><a class="btn btn-danger" >Supprimer</a></td>
+          <td><a class="btn btn-danger" (click)="supprimerEquipe(equipe)">Supprimer</a></td>
           <td><a  class="btn btn-success" [routerLink]="['/update-equipe', equipe.id]">Modifier</a></td>
         </tr>
         </tbody>

@@ -1,9 +1,12 @@
 <div class="card shadow mb-4">
   <div class="card-body">
+    <h3>Liste des joueurs</h3>
     <table class="table table-striped">
       <thead>
       <tr>
-        <th>Liste des Joueurs</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Numéro</th>
       </tr>
       </thead>
       <tbody *ngFor="let j of joueurs">
@@ -11,16 +14,20 @@
         <td>{{j.nom}}</td>
         <td>{{j.prenom}}</td>
         <td>{{j.numero}}</td>
-        <td><a class="btn btn-danger">Supprimer</a></td>
-        <td><a class="btn btn-success" >Modifier</a></td>
+        <td><a class="btn btn-primary">Stats</a></td>
+        <td><a class="btn btn-danger" (click)="supprimerJoueur(j)">Supprimer</a></td>
+        <td><a class="btn btn-success" [routerLink]="['/update-joueurs', j.id]">Modifier</a></td>
       </tr>
       </tbody>
-      <td><a href="" class="btn btn-outline-primary mt-2" >Ajouter un Joueur</a></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td ><a href="javascript:history.go(-1)" class="btn btn-outline-secondary mt-2">Annuler</a></td>
+
     </table>
+    <div style="display: flex; justify-content: space-around; align-items: center;">
+      <td><a href="" class="btn btn-outline-primary mt-2" [routerLink]="['/ajout-joueurs', id]">Ajouter un Joueur</a></td>
+
+      <td><a href="" class="btn btn-outline-primary mt-2" [routerLink]="['/equipe']">Liste des Equipes</a></td>
+
+      <td ><a href="javascript:history.go(-1)" class="btn btn-outline-secondary mt-2">Annuler</a></td>
+    </div>
 
     <table class="table table-striped">
       <ng-template #noJoueurs>

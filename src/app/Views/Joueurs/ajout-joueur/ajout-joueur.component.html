@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <tr>
+          <th>Ajouter un Joueur</th>
+        </tr>
+        <tr>
+          <td><label>Nom</label></td>
+          <td><input type="text" [(ngModel)]="joueur.nom" name="nom" class="form-control" placeholder="Nom"></td>
+        </tr>
+        <tr>
+          <td><label>Prenom</label></td>
+          <td><input type="text" [(ngModel)]="joueur.prenom" name="prenom" class="form-control" placeholder="Prenom"></td>
+        </tr>
+        <tr>
+          <td><label>Numéro</label></td>
+          <td><input type="number" [(ngModel)]="joueur.numero" name="numero" class="form-control" placeholder="Numéro"></td>
+        </tr>
+        <tr>
+          <td><label>Equipe</label></td>
+          <td><input readonly type="number" [(ngModel)]="joueur.equipeId" name="equipeId" class="form-control" placeholder="{{id}}"></td>
+        </tr>
+      </table>
+      <div class="form-group">
+        <td class="list-group-item-action">
+          <button (click)="ajouterJoueur()" class="btn btn-outline-primary">Ajouter Joueur</button>
+        </td>
+        <td class="list-group-item-action">
+          <button class="btn btn-outline-secondary"><a href="javascript:history.go(-1)">Annuler</a></button>
+        </td>
+      </div>
+    </div>
+  </div>
+</div>
+

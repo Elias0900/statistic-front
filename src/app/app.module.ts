@@ -10,6 +10,8 @@ import { NewTeamComponent } from './Views/Equipes/new-team/new-team.component';
 import {FormsModule} from "@angular/forms";
 import { DetailEquipeComponent } from './Views/Equipes/detail-equipe/detail-equipe.component';
 import { UpdateEquipeComponent } from './Views/Equipes/update-equipe/update-equipe.component';
+import { AjoutJoueurComponent } from './Views/Joueurs/ajout-joueur/ajout-joueur.component';
+import { UpdateJoueursComponent } from './Views/Joueurs/update-joueurs/update-joueurs.component';
 
 
 
@@ -21,6 +23,8 @@ import { UpdateEquipeComponent } from './Views/Equipes/update-equipe/update-equi
     NewTeamComponent,
     DetailEquipeComponent,
     UpdateEquipeComponent,
+    AjoutJoueurComponent,
+    UpdateJoueursComponent,
   ],
   imports: [
     BrowserModule,

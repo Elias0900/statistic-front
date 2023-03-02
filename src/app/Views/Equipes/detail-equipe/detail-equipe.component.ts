@@ -4,6 +4,7 @@ import {JoueurControllerService} from "../../../services/services/joueur-control
 import {EquipeControllerService} from "../../../services/services/equipe-controller.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {first} from "rxjs";
+import {EquipeDto} from "../../../services/models/equipe-dto";
 
 @Component({
   selector: 'app-detail-equipe',
@@ -23,7 +24,7 @@ export class DetailEquipeComponent implements OnInit  {
 
   constructor(private jService: JoueurControllerService,
               private eService : EquipeControllerService,
-              private activeRoute: ActivatedRoute,
+              public activeRoute: ActivatedRoute,
               private router: Router) {
   }
   ngOnInit(): void {
@@ -39,8 +40,19 @@ export class DetailEquipeComponent implements OnInit  {
     })
   }
 
+
   async cancel() {
     await this.router.navigate(['/equipe'])
+  }
+
+  supprimerJoueur(j: JoueurDto){
+    let conf = confirm("Êtes vous sur de vouloir supprimer ?")
+    if (conf) {
+      this.jService.suppression2({'id': j.id!}).subscribe(()=>{
+        this.findJoueurParteam()
+      })
+
+    }
   }
 
 
