@@ -7,4 +7,5 @@ export interface MatchDto {
   id?: number;
   scoreDomicile?: number;
   scoreExterieur?: number;
+  statsId?: number;
 }

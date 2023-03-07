@@ -5,9 +5,11 @@ export interface StatsDto {
   contre?: number;
   fautes?: number;
   id?: number;
+  interception?: number;
   joueurId?: number;
   lfMarque?: number;
   lfRate?: number;
+  matchId?: number;
   paniersLoins?: number;
   paniersProche?: number;
   passeD?: number;
@@ -15,5 +17,6 @@ export interface StatsDto {
   rebondOff?: number;
   tirRateLoin?: number;
   tirRateProche?: number;
+  tirTotal?: number;
   totalId?: number;
 }

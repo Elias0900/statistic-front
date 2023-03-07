@@ -9,6 +9,7 @@ import { MatchControllerService } from './services/match-controller.service';
 import { JoueurControllerService } from './services/joueur-controller.service';
 import { EquipeControllerService } from './services/equipe-controller.service';
 import { TotalControllerService } from './services/total-controller.service';
+import { MoyenneControllerService } from './services/moyenne-controller.service';
 
 /**
  * Module that provides all services and configuration.
@@ -23,6 +24,7 @@ import { TotalControllerService } from './services/total-controller.service';
     JoueurControllerService,
     EquipeControllerService,
     TotalControllerService,
+    MoyenneControllerService,
     ApiConfiguration
   ],
 })

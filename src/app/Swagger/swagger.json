@@ -1,3 +1,4 @@
+
 {
   "openapi": "3.0.1",
   "info": {
@@ -420,7 +421,7 @@
         }
       }
     },
-    "/api/stats/troispoints/{id}": {
+    "/api/stats/match/{eid}/troispoints/{id}": {
       "post": {
         "tags": [
           "stats-controller"
@@ -435,6 +436,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -451,7 +461,7 @@
         }
       }
     },
-    "/api/stats/rebondoff/{id}": {
+    "/api/stats/match/{eid}/rebondoff/{id}": {
       "post": {
         "tags": [
           "stats-controller"
@@ -466,6 +476,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -482,7 +501,7 @@
         }
       }
     },
-    "/api/stats/rebonddeff/{id}": {
+    "/api/stats/match/{eid}/rebonddeff/{id}": {
       "post": {
         "tags": [
           "stats-controller"
@@ -497,6 +516,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -513,7 +541,7 @@
         }
       }
     },
-    "/api/stats/rateproche/{id}": {
+    "/api/stats/match/{eid}/rateproche/{id}": {
       "post": {
         "tags": [
           "stats-controller"
@@ -528,6 +556,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -544,7 +581,7 @@
         }
       }
     },
-    "/api/stats/rateloin/{id}": {
+    "/api/stats/match/{eid}/rateloin/{id}": {
       "post": {
         "tags": [
           "stats-controller"
@@ -559,6 +596,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -575,7 +621,7 @@
         }
       }
     },
-    "/api/stats/passe/{id}": {
+    "/api/stats/match/{eid}/passe/{id}": {
       "post": {
         "tags": [
           "stats-controller"
@@ -590,6 +636,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -606,7 +661,7 @@
         }
       }
     },
-    "/api/stats/lfrate/{id}": {
+    "/api/stats/match/{eid}/lfrate/{id}": {
       "post": {
         "tags": [
           "stats-controller"
@@ -621,6 +676,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -637,7 +701,7 @@
         }
       }
     },
-    "/api/stats/lf/{id}": {
+    "/api/stats/match/{eid}/lf/{id}": {
       "post": {
         "tags": [
           "stats-controller"
@@ -652,6 +716,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -668,7 +741,47 @@
         }
       }
     },
-    "/api/stats/fautes/{id}": {
+    "/api/stats/match/{eid}/inter/{id}": {
+      "post": {
+        "tags": [
+          "stats-controller"
+        ],
+        "operationId": "interceptions",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/match/{eid}/fautes/{id}": {
       "post": {
         "tags": [
           "stats-controller"
@@ -683,6 +796,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -699,7 +821,7 @@
         }
       }
     },
-    "/api/stats/deuxpoints/{id}": {
+    "/api/stats/match/{eid}/deuxpoints/{id}": {
       "post": {
         "tags": [
           "stats-controller"
@@ -714,6 +836,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -730,7 +861,7 @@
         }
       }
     },
-    "/api/stats/contres/{id}": {
+    "/api/stats/match/{eid}/contres/{id}": {
       "post": {
         "tags": [
           "stats-controller"
@@ -745,6 +876,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -761,7 +901,7 @@
         }
       }
     },
-    "/api/stats/bp/{id}": {
+    "/api/stats/match/{eid}/bp/{id}": {
       "post": {
         "tags": [
           "stats-controller"
@@ -776,6 +916,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -792,7 +941,7 @@
         }
       }
     },
-    "/api/total/{id}": {
+    "/api/total/{id}/match/{matchId}": {
       "get": {
         "tags": [
           "total-controller"
@@ -807,32 +956,9 @@
               "type": "integer",
               "format": "int64"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "integer",
-                  "format": "int32"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/total/troispoints/{id}": {
-      "get": {
-        "tags": [
-          "total-controller"
-        ],
-        "operationId": "troispoints_1",
-        "parameters": [
+          },
           {
-            "name": "id",
+            "name": "matchId",
             "in": "path",
             "required": true,
             "schema": {
@@ -856,7 +982,48 @@
         }
       }
     },
-    "/api/total/rebond/{id}": {
+    "/api/total/troispoints/{id}/match/{matchId}": {
+      "get": {
+        "tags": [
+          "total-controller"
+        ],
+        "operationId": "troispoints_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "matchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/total/rebond/{id}/match/{matchId}": {
       "get": {
         "tags": [
           "total-controller"
@@ -879,6 +1046,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "matchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -887,8 +1063,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "number",
+                  "format": "double"
                 }
               }
             }
@@ -896,7 +1072,7 @@
         }
       }
     },
-    "/api/total/pourcentagelf/{id}": {
+    "/api/total/pourcentagelf/{id}/match/{matchId}": {
       "get": {
         "tags": [
           "total-controller"
@@ -911,6 +1087,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "matchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -928,7 +1113,7 @@
         }
       }
     },
-    "/api/total/pourcentage/{id}": {
+    "/api/total/pourcentage/{id}/match/{matchId}": {
       "get": {
         "tags": [
           "total-controller"
@@ -943,6 +1128,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "matchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -960,7 +1154,7 @@
         }
       }
     },
-    "/api/total/passe/{id}": {
+    "/api/total/passe/{id}/match/{matchId}": {
       "get": {
         "tags": [
           "total-controller"
@@ -975,6 +1169,15 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "matchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
@@ -983,8 +1186,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "number",
+                  "format": "double"
                 }
               }
             }
@@ -992,7 +1195,56 @@
         }
       }
     },
-    "/api/total/deuxpoints/{id}": {
+    "/api/total/inter/{id}/match/{matchId}": {
+      "get": {
+        "tags": [
+          "total-controller"
+        ],
+        "operationId": "interception",
+        "parameters": [
+          {
+            "name": "jDto",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/TotalDTO"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "matchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/total/deuxpoints/{id}/match/{matchId}": {
       "get": {
         "tags": [
           "total-controller"
@@ -1001,6 +1253,64 @@
         "parameters": [
           {
             "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "matchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/total/contre/{id}/match/{matchId}": {
+      "get": {
+        "tags": [
+          "total-controller"
+        ],
+        "operationId": "contres_1",
+        "parameters": [
+          {
+            "name": "jDto",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/TotalDTO"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "matchId",
             "in": "path",
             "required": true,
             "schema": {
@@ -1048,6 +1358,540 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/moyenne/trois/{joueurId}": {
+      "get": {
+        "tags": [
+          "moyenne-controller"
+        ],
+        "operationId": "troispoints_2",
+        "parameters": [
+          {
+            "name": "joueurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/moyenne/shoot/{joueurId}": {
+      "get": {
+        "tags": [
+          "moyenne-controller"
+        ],
+        "operationId": "tir",
+        "parameters": [
+          {
+            "name": "joueurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/moyenne/rebond/{joueurId}": {
+      "get": {
+        "tags": [
+          "moyenne-controller"
+        ],
+        "operationId": "rebond_1",
+        "parameters": [
+          {
+            "name": "joueurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/moyenne/points/{joueurId}": {
+      "get": {
+        "tags": [
+          "moyenne-controller"
+        ],
+        "operationId": "avgPoint",
+        "parameters": [
+          {
+            "name": "joueurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/moyenne/passe/{joueurId}": {
+      "get": {
+        "tags": [
+          "moyenne-controller"
+        ],
+        "operationId": "passe_2",
+        "parameters": [
+          {
+            "name": "joueurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/moyenne/lf/{joueurId}": {
+      "get": {
+        "tags": [
+          "moyenne-controller"
+        ],
+        "operationId": "lf_1",
+        "parameters": [
+          {
+            "name": "joueurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/moyenne/inter/{joueurId}": {
+      "get": {
+        "tags": [
+          "moyenne-controller"
+        ],
+        "operationId": "inter",
+        "parameters": [
+          {
+            "name": "joueurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/moyenne/deux/{joueurId}": {
+      "get": {
+        "tags": [
+          "moyenne-controller"
+        ],
+        "operationId": "deuxpts",
+        "parameters": [
+          {
+            "name": "joueurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/moyenne/contre/{joueurId}": {
+      "get": {
+        "tags": [
+          "moyenne-controller"
+        ],
+        "operationId": "contre",
+        "parameters": [
+          {
+            "name": "joueurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/match/scoreext3pts/{id}/joueur/{jid}": {
+      "get": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "ext3",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "jid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/match/scoreext2pts/{id}/joueur/{jid}": {
+      "get": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "exterieur",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "jid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/match/scoreext1pts/{id}/joueur/{jid}": {
+      "get": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "extLF",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "jid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/match/scoredomicile3pts/{id}/joueur/{jid}": {
+      "get": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "domicile3",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "jid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/match/scoredomicile2pts/{id}/joueur/{jid}": {
+      "get": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "domicile",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "jid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/match/scoredomicile1pts/{id}/joueur/{jid}": {
+      "get": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "domicileLF",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "jid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
                 }
               }
             }
@@ -1254,52 +2098,64 @@
             "format": "int64"
           },
           "fautes": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "passeD": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "ballonPerdu": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "paniersProche": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "tirRateProche": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "contre": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "paniersLoins": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "tirRateLoin": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rebondOff": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rebondDeff": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "lfRate": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "lfMarque": {
+            "type": "number",
+            "format": "double"
+          },
+          "tirTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "rebondOff": {
+            "type": "number",
+            "format": "double"
+          },
+          "rebondDeff": {
+            "type": "number",
+            "format": "double"
+          },
+          "contre": {
+            "type": "number",
+            "format": "double"
+          },
+          "interception": {
+            "type": "number",
+            "format": "double"
+          },
+          "matchId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "joueurId": {
             "type": "integer",
@@ -1337,6 +2193,10 @@
           "date": {
             "type": "string",
             "format": "date-time"
+          },
+          "statsId": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -1395,22 +2255,34 @@
             "format": "int64"
           },
           "totalPoints": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "totalRebonds": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "totalPasseD": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
+          },
+          "totalContre": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalInterception": {
+            "type": "number",
+            "format": "double"
           },
           "pourcentageDeuxPts": {
             "type": "number",
             "format": "double"
           },
           "pourcentageTroisPts": {
+            "type": "number",
+            "format": "double"
+          },
+          "pourcentageLF": {
             "type": "number",
             "format": "double"
           },

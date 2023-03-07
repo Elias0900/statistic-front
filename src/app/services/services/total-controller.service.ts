@@ -25,7 +25,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation totalPoint
    */
-  static readonly TotalPointPath = '/api/total/{id}';
+  static readonly TotalPointPath = '/api/total/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -35,6 +35,7 @@ export class TotalControllerService extends BaseService {
    */
   totalPoint$Response(params: {
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
@@ -43,6 +44,7 @@ export class TotalControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.TotalPointPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('matchId', params.matchId, {});
     }
 
     return this.http.request(rb.build({
@@ -65,6 +67,7 @@ export class TotalControllerService extends BaseService {
    */
   totalPoint(params: {
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
@@ -78,7 +81,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation troispoints1
    */
-  static readonly Troispoints1Path = '/api/total/troispoints/{id}';
+  static readonly Troispoints1Path = '/api/total/troispoints/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -88,6 +91,7 @@ export class TotalControllerService extends BaseService {
    */
   troispoints1$Response(params: {
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
@@ -96,6 +100,7 @@ export class TotalControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.Troispoints1Path, 'get');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('matchId', params.matchId, {});
     }
 
     return this.http.request(rb.build({
@@ -118,6 +123,7 @@ export class TotalControllerService extends BaseService {
    */
   troispoints1(params: {
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
@@ -131,7 +137,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation rebond
    */
-  static readonly RebondPath = '/api/total/rebond/{id}';
+  static readonly RebondPath = '/api/total/rebond/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -142,6 +148,7 @@ export class TotalControllerService extends BaseService {
   rebond$Response(params: {
     jDto: TotalDto;
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
@@ -151,6 +158,7 @@ export class TotalControllerService extends BaseService {
     if (params) {
       rb.query('jDto', params.jDto, {});
       rb.path('id', params.id, {});
+      rb.path('matchId', params.matchId, {});
     }
 
     return this.http.request(rb.build({
@@ -174,6 +182,7 @@ export class TotalControllerService extends BaseService {
   rebond(params: {
     jDto: TotalDto;
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
@@ -187,7 +196,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation pourcentageLf
    */
-  static readonly PourcentageLfPath = '/api/total/pourcentagelf/{id}';
+  static readonly PourcentageLfPath = '/api/total/pourcentagelf/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -197,6 +206,7 @@ export class TotalControllerService extends BaseService {
    */
   pourcentageLf$Response(params: {
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
@@ -205,6 +215,7 @@ export class TotalControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.PourcentageLfPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('matchId', params.matchId, {});
     }
 
     return this.http.request(rb.build({
@@ -227,6 +238,7 @@ export class TotalControllerService extends BaseService {
    */
   pourcentageLf(params: {
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
@@ -240,7 +252,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation pourcentage
    */
-  static readonly PourcentagePath = '/api/total/pourcentage/{id}';
+  static readonly PourcentagePath = '/api/total/pourcentage/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -250,6 +262,7 @@ export class TotalControllerService extends BaseService {
    */
   pourcentage$Response(params: {
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
@@ -258,6 +271,7 @@ export class TotalControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.PourcentagePath, 'get');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('matchId', params.matchId, {});
     }
 
     return this.http.request(rb.build({
@@ -280,6 +294,7 @@ export class TotalControllerService extends BaseService {
    */
   pourcentage(params: {
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
@@ -293,7 +308,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation passe1
    */
-  static readonly Passe1Path = '/api/total/passe/{id}';
+  static readonly Passe1Path = '/api/total/passe/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -303,6 +318,7 @@ export class TotalControllerService extends BaseService {
    */
   passe1$Response(params: {
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
@@ -311,6 +327,7 @@ export class TotalControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.Passe1Path, 'get');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('matchId', params.matchId, {});
     }
 
     return this.http.request(rb.build({
@@ -333,6 +350,7 @@ export class TotalControllerService extends BaseService {
    */
   passe1(params: {
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
@@ -344,9 +362,68 @@ export class TotalControllerService extends BaseService {
   }
 
   /**
+   * Path part for operation interception
+   */
+  static readonly InterceptionPath = '/api/total/inter/{id}/match/{matchId}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `interception()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  interception$Response(params: {
+    jDto: TotalDto;
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
+
+    const rb = new RequestBuilder(this.rootUrl, TotalControllerService.InterceptionPath, 'get');
+    if (params) {
+      rb.query('jDto', params.jDto, {});
+      rb.path('id', params.id, {});
+      rb.path('matchId', params.matchId, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `interception$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  interception(params: {
+    jDto: TotalDto;
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<number> {
+
+    return this.interception$Response(params,context).pipe(
+      map((r: StrictHttpResponse<number>) => r.body as number)
+    );
+  }
+
+  /**
    * Path part for operation deuxpoints
    */
-  static readonly DeuxpointsPath = '/api/total/deuxpoints/{id}';
+  static readonly DeuxpointsPath = '/api/total/deuxpoints/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -356,6 +433,7 @@ export class TotalControllerService extends BaseService {
    */
   deuxpoints$Response(params: {
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
@@ -364,6 +442,7 @@ export class TotalControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.DeuxpointsPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('matchId', params.matchId, {});
     }
 
     return this.http.request(rb.build({
@@ -386,12 +465,72 @@ export class TotalControllerService extends BaseService {
    */
   deuxpoints(params: {
     id: number;
+    matchId: number;
   },
   context?: HttpContext
 
 ): Observable<number> {
 
     return this.deuxpoints$Response(params,context).pipe(
+      map((r: StrictHttpResponse<number>) => r.body as number)
+    );
+  }
+
+  /**
+   * Path part for operation contres1
+   */
+  static readonly Contres1Path = '/api/total/contre/{id}/match/{matchId}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `contres1()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  contres1$Response(params: {
+    jDto: TotalDto;
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
+
+    const rb = new RequestBuilder(this.rootUrl, TotalControllerService.Contres1Path, 'get');
+    if (params) {
+      rb.query('jDto', params.jDto, {});
+      rb.path('id', params.id, {});
+      rb.path('matchId', params.matchId, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `contres1$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  contres1(params: {
+    jDto: TotalDto;
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<number> {
+
+    return this.contres1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }

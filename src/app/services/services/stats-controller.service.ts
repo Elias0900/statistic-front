@@ -293,7 +293,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation troispoints
    */
-  static readonly TroispointsPath = '/api/stats/troispoints/{id}';
+  static readonly TroispointsPath = '/api/stats/match/{eid}/troispoints/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -303,6 +303,7 @@ export class StatsControllerService extends BaseService {
    */
   troispoints$Response(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -311,6 +312,7 @@ export class StatsControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.TroispointsPath, 'post');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('eid', params.eid, {});
     }
 
     return this.http.request(rb.build({
@@ -333,6 +335,7 @@ export class StatsControllerService extends BaseService {
    */
   troispoints(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -346,7 +349,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation rebondOff
    */
-  static readonly RebondOffPath = '/api/stats/rebondoff/{id}';
+  static readonly RebondOffPath = '/api/stats/match/{eid}/rebondoff/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -356,6 +359,7 @@ export class StatsControllerService extends BaseService {
    */
   rebondOff$Response(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -364,6 +368,7 @@ export class StatsControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.RebondOffPath, 'post');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('eid', params.eid, {});
     }
 
     return this.http.request(rb.build({
@@ -386,6 +391,7 @@ export class StatsControllerService extends BaseService {
    */
   rebondOff(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -399,7 +405,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation rebondDeff
    */
-  static readonly RebondDeffPath = '/api/stats/rebonddeff/{id}';
+  static readonly RebondDeffPath = '/api/stats/match/{eid}/rebonddeff/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -409,6 +415,7 @@ export class StatsControllerService extends BaseService {
    */
   rebondDeff$Response(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -417,6 +424,7 @@ export class StatsControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.RebondDeffPath, 'post');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('eid', params.eid, {});
     }
 
     return this.http.request(rb.build({
@@ -439,6 +447,7 @@ export class StatsControllerService extends BaseService {
    */
   rebondDeff(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -452,7 +461,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation tirRate
    */
-  static readonly TirRatePath = '/api/stats/rateproche/{id}';
+  static readonly TirRatePath = '/api/stats/match/{eid}/rateproche/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -462,6 +471,7 @@ export class StatsControllerService extends BaseService {
    */
   tirRate$Response(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -470,6 +480,7 @@ export class StatsControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.TirRatePath, 'post');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('eid', params.eid, {});
     }
 
     return this.http.request(rb.build({
@@ -492,6 +503,7 @@ export class StatsControllerService extends BaseService {
    */
   tirRate(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -505,7 +517,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation rateTroispoints
    */
-  static readonly RateTroispointsPath = '/api/stats/rateloin/{id}';
+  static readonly RateTroispointsPath = '/api/stats/match/{eid}/rateloin/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -515,6 +527,7 @@ export class StatsControllerService extends BaseService {
    */
   rateTroispoints$Response(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -523,6 +536,7 @@ export class StatsControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.RateTroispointsPath, 'post');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('eid', params.eid, {});
     }
 
     return this.http.request(rb.build({
@@ -545,6 +559,7 @@ export class StatsControllerService extends BaseService {
    */
   rateTroispoints(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -558,7 +573,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation passe
    */
-  static readonly PassePath = '/api/stats/passe/{id}';
+  static readonly PassePath = '/api/stats/match/{eid}/passe/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -568,6 +583,7 @@ export class StatsControllerService extends BaseService {
    */
   passe$Response(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -576,6 +592,7 @@ export class StatsControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.PassePath, 'post');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('eid', params.eid, {});
     }
 
     return this.http.request(rb.build({
@@ -598,6 +615,7 @@ export class StatsControllerService extends BaseService {
    */
   passe(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -611,7 +629,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation lfRate
    */
-  static readonly LfRatePath = '/api/stats/lfrate/{id}';
+  static readonly LfRatePath = '/api/stats/match/{eid}/lfrate/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -621,6 +639,7 @@ export class StatsControllerService extends BaseService {
    */
   lfRate$Response(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -629,6 +648,7 @@ export class StatsControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.LfRatePath, 'post');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('eid', params.eid, {});
     }
 
     return this.http.request(rb.build({
@@ -651,6 +671,7 @@ export class StatsControllerService extends BaseService {
    */
   lfRate(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -664,7 +685,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation lf
    */
-  static readonly LfPath = '/api/stats/lf/{id}';
+  static readonly LfPath = '/api/stats/match/{eid}/lf/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -674,6 +695,7 @@ export class StatsControllerService extends BaseService {
    */
   lf$Response(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -682,6 +704,7 @@ export class StatsControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.LfPath, 'post');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('eid', params.eid, {});
     }
 
     return this.http.request(rb.build({
@@ -704,6 +727,7 @@ export class StatsControllerService extends BaseService {
    */
   lf(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -715,9 +739,65 @@ export class StatsControllerService extends BaseService {
   }
 
   /**
+   * Path part for operation interceptions
+   */
+  static readonly InterceptionsPath = '/api/stats/match/{eid}/inter/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `interceptions()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  interceptions$Response(params: {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, StatsControllerService.InterceptionsPath, 'post');
+    if (params) {
+      rb.path('id', params.id, {});
+      rb.path('eid', params.eid, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<StatsDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `interceptions$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  interceptions(params: {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StatsDto> {
+
+    return this.interceptions$Response(params,context).pipe(
+      map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
+    );
+  }
+
+  /**
    * Path part for operation faute
    */
-  static readonly FautePath = '/api/stats/fautes/{id}';
+  static readonly FautePath = '/api/stats/match/{eid}/fautes/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -727,6 +807,7 @@ export class StatsControllerService extends BaseService {
    */
   faute$Response(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -735,6 +816,7 @@ export class StatsControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.FautePath, 'post');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('eid', params.eid, {});
     }
 
     return this.http.request(rb.build({
@@ -757,6 +839,7 @@ export class StatsControllerService extends BaseService {
    */
   faute(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -770,7 +853,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation ajoutdeuxpoints
    */
-  static readonly AjoutdeuxpointsPath = '/api/stats/deuxpoints/{id}';
+  static readonly AjoutdeuxpointsPath = '/api/stats/match/{eid}/deuxpoints/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -780,6 +863,7 @@ export class StatsControllerService extends BaseService {
    */
   ajoutdeuxpoints$Response(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -788,6 +872,7 @@ export class StatsControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.AjoutdeuxpointsPath, 'post');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('eid', params.eid, {});
     }
 
     return this.http.request(rb.build({
@@ -810,6 +895,7 @@ export class StatsControllerService extends BaseService {
    */
   ajoutdeuxpoints(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -823,7 +909,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation contres
    */
-  static readonly ContresPath = '/api/stats/contres/{id}';
+  static readonly ContresPath = '/api/stats/match/{eid}/contres/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -833,6 +919,7 @@ export class StatsControllerService extends BaseService {
    */
   contres$Response(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -841,6 +928,7 @@ export class StatsControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.ContresPath, 'post');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('eid', params.eid, {});
     }
 
     return this.http.request(rb.build({
@@ -863,6 +951,7 @@ export class StatsControllerService extends BaseService {
    */
   contres(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -876,7 +965,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation bp
    */
-  static readonly BpPath = '/api/stats/bp/{id}';
+  static readonly BpPath = '/api/stats/match/{eid}/bp/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -886,6 +975,7 @@ export class StatsControllerService extends BaseService {
    */
   bp$Response(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
@@ -894,6 +984,7 @@ export class StatsControllerService extends BaseService {
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.BpPath, 'post');
     if (params) {
       rb.path('id', params.id, {});
+      rb.path('eid', params.eid, {});
     }
 
     return this.http.request(rb.build({
@@ -916,6 +1007,7 @@ export class StatsControllerService extends BaseService {
    */
   bp(params: {
     id: number;
+    eid: number;
   },
   context?: HttpContext
 
