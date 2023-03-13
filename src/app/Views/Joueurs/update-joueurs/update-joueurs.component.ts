@@ -6,10 +6,9 @@ import {JoueurDto} from "../../../services/models/joueur-dto";
 @Component({
   selector: 'app-update-joueurs',
   templateUrl: './update-joueurs.component.html',
-  styles: [
-  ]
+  styles: []
 })
-export class UpdateJoueursComponent implements  OnInit{
+export class UpdateJoueursComponent implements OnInit {
 
   joueur: JoueurDto = {}
   id = this.activeRoute.snapshot.params['joueurid']

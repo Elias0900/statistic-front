@@ -6,11 +6,10 @@ import {ActivatedRoute, Router} from "@angular/router";
 @Component({
   selector: 'app-update-equipe',
   templateUrl: './update-equipe.component.html',
-  styles: [
-  ]
+  styles: []
 })
 
-export class UpdateEquipeComponent  implements OnInit{
+export class UpdateEquipeComponent implements OnInit {
 
   equipe: EquipeDto = {}
 
@@ -19,8 +18,9 @@ export class UpdateEquipeComponent  implements OnInit{
   constructor(private eService: EquipeControllerService,
               private activateRoute: ActivatedRoute,
               private route: Router,
-              ) {
+  ) {
   }
+
   ngOnInit(): void {
     this.eService.getById({id: this.id}).subscribe(value => {
       console.log(value)
@@ -30,7 +30,7 @@ export class UpdateEquipeComponent  implements OnInit{
 
   }
 
-  modifierEquipe(){
+  modifierEquipe() {
     return this.eService.modifierJoueur1({'body': this.equipe}).subscribe(
       e => {
         console.log(e)
@@ -39,16 +39,15 @@ export class UpdateEquipeComponent  implements OnInit{
     )
   }
 
-  supprimerEquipe(){
+  supprimerEquipe() {
     let conf = confirm("Êtes vous sur de vouloir supprimer ?")
     if (conf) {
-      this.eService.suppression3({'id': this.id}).subscribe(()=>{
+      this.eService.suppression3({'id': this.id}).subscribe(() => {
         console.log(this.id + " a été supprimé")
       })
       this.route.navigate(['/equipe'])
     }
   }
-
 
 
 }

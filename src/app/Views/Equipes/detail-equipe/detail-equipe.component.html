@@ -1,12 +1,48 @@
-<div class="card shadow mb-4">
+<div class="card shadow">
+  <header data-role="Accordion" class="liste-des-equipes-header">
+    <img
+      alt="logo"
+      src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
+      class="liste-des-equipes-image"
+    />
+    <div class="liste-des-equipes-separator"></div>
+    <nav class="liste-des-equipes-nav">
+      <div>
+        <button class="liste-des-equipes-button button" [routerLink]="['/equipe']">Equipes</button>
+        <button class="liste-des-equipes-button button">
+          <span>
+            <span>Historiques</span>
+            <br/>
+          </span>
+        </button>
+      </div>
+    </nav>
+    <div data-role="AccordionHeader" class="liste-des-equipes-accordion-header">
+      <svg viewBox="0 0 1024 1024" class="liste-des-equipes-icon">
+        <path
+          d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+        ></path>
+      </svg>
+    </div>
+    <div
+      data-role="AccordionContent"
+      class="liste-des-equipes-accordion-content"
+    >
+      <div class="liste-des-equipes-nav1">
+      </div>
+    </div>
+  </header>
   <div class="card-body">
-    <h3>Liste des joueurs</h3>
-    <table class="table table-striped">
+    <h2>Liste des joueurs</h2>
+    <table class="table custom-table">
       <thead>
       <tr>
         <th>Nom</th>
         <th>Prenom</th>
         <th>Numéro</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
       </thead>
       <tbody *ngFor="let j of joueurs">
@@ -14,19 +50,20 @@
         <td>{{j.nom}}</td>
         <td>{{j.prenom}}</td>
         <td>{{j.numero}}</td>
-        <td><a class="btn btn-primary">Stats</a></td>
-        <td><a class="btn btn-danger" (click)="supprimerJoueur(j)">Supprimer</a></td>
-        <td><a class="btn btn-success" [routerLink]="['/update-joueurs', j.id]">Modifier</a></td>
+        <td><button class="bouton stats">Stats</button></td>
+        <td><button class="bouton supprimer" (click)="supprimerJoueur(j)">Supprimer</button></td>
+        <td><button class="bouton modifier" [routerLink]="['/update-joueurs', j.id]">Modifier</button></td>
       </tr>
       </tbody>
 
     </table>
-    <div style="display: flex; justify-content: space-around; align-items: center;">
-      <td><a href="" class="btn btn-outline-primary mt-2" [routerLink]="['/ajout-joueurs', id]">Ajouter un Joueur</a></td>
+    <div class="custom-bouton">
+      <td><button href="" class="bouton" [routerLink]="['/ajout-joueurs', id]">Ajouter un Joueur</button>
+      </td>
 
-      <td><a href="" class="btn btn-outline-primary mt-2" [routerLink]="['/equipe']">Liste des Equipes</a></td>
+      <td><button href="" class="bouton" [routerLink]="['/equipe']">Liste des Equipes</button></td>
 
-      <td ><a href="javascript:history.go(-1)" class="btn btn-outline-secondary mt-2">Annuler</a></td>
+      <td><button href="javascript:history.go(-1)" class="bouton">Annuler</button></td>
     </div>
 
     <table class="table table-striped">

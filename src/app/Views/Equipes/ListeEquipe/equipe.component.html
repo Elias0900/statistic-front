@@ -1,32 +1,77 @@
-  <div class="card shadow mb-4">
-    <div class="card-body">
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>Liste des Equipes</th>
-        </tr>
-        </thead>
-        <tbody *ngIf="equipes.length > 0">
-        <tr>
-          <td><b>Nom</b></td>
-          <td><b></b></td>
-          <td><b></b></td>
-          <td></td>
-        </tr>
-        <tr *ngFor="let equipe of equipes ">
-          <td>{{equipe.nomEquipe}}</td>
-          <td><a href="" class="btn btn-outline-success" [routerLink]="['/detail-equipe', equipe.id]">Détails</a></td>
-          <td><a class="btn btn-danger" (click)="supprimerEquipe(equipe)">Supprimer</a></td>
-          <td><a  class="btn btn-success" [routerLink]="['/update-equipe', equipe.id]">Modifier</a></td>
-        </tr>
-        </tbody>
-      </table>
-
-      <div class="form-group" >
+<div class="liste-des-equipes-container">
+  <header data-role="Accordion" class="liste-des-equipes-header">
+    <img
+      alt="logo"
+      src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
+      class="liste-des-equipes-image"
+    />
+    <div class="liste-des-equipes-separator"></div>
+    <nav class="liste-des-equipes-nav">
+      <div>
+        <button class="liste-des-equipes-button button" [routerLink]="['/equipe']">Equipes</button>
+        <button class="liste-des-equipes-button button">
+          <span>
+            <span>Historiques</span>
+            <br/>
+          </span>
+        </button>
       </div>
-      <button class="btn btn-primary" [routerLink]="['/new-team']">Ajouter une equipe</button>
+    </nav>
+    <div data-role="AccordionHeader" class="liste-des-equipes-accordion-header">
+      <svg viewBox="0 0 1024 1024" class="liste-des-equipes-icon">
+        <path
+          d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+        ></path>
+      </svg>
+    </div>
+    <div
+      data-role="AccordionContent"
+      class="liste-des-equipes-accordion-content"
+    >
+      <div class="liste-des-equipes-nav1">
+      </div>
+    </div>
+  </header>
+  <div class="liste-des-equipes-features">
+    <h1 class="liste-des-equipes-text3">Liste des Equipes</h1>
+    <div class="liste-des-equipes-container2">
+      <app-card-equipe
+        *ngFor="let e of equipes"
+        [accessKey]="e.id"
+        [nomEquipe]="e.nomEquipe"
+        [routerLink]="['/detail-equipe', e.id]"
+        [supprimerEquipe]="getSupprimerEquipeFn(e)"
+      >
+      </app-card-equipe>
+      <div *ngIf="erreurEquipe">
+        <h5>Aucune Equipe Enregistrées ! </h5>
+      </div>
+    </div>
+
+  </div>
+  <button class="liste-des-equipes-button2 button" (click)="openModal()">
+    <span>
+      <span>Ajouter une Equipe</span>
+    </span>
+  </button>
+
+  <div class="modal" [ngClass]="{'is-active': showModal}">
+    <div class="modal-background" (click)="closeModal()"></div>
+    <div class="modal-content">
+      <!-- Ajouter le formulaire ou le contenu de votre modal ici -->
+      <form>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <label>Nom</label>
+          <input type="text" [(ngModel)]="equipe.nomEquipe" name="nomEquipe" class="form-control">
+        </div>
+        <div *ngIf="errorAjout" class="mt-2 col-12 alert alert-danger">
+          {{ errorAjout }}
+        </div>
+        <div class="mt-2 col-2 ">
+          <button type="button" (click)="save()" class="btn btn-success mr-2">Ajouter</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+        </div>
+      </form>
     </div>
   </div>
-
-
-
+</div>

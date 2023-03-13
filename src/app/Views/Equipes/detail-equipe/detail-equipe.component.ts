@@ -3,16 +3,13 @@ import {JoueurDto} from "../../../services/models/joueur-dto";
 import {JoueurControllerService} from "../../../services/services/joueur-controller.service";
 import {EquipeControllerService} from "../../../services/services/equipe-controller.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {first} from "rxjs";
-import {EquipeDto} from "../../../services/models/equipe-dto";
 
 @Component({
   selector: 'app-detail-equipe',
   templateUrl: './detail-equipe.component.html',
-  styles: [
-  ]
+  styleUrls: ['detail-equipe.css']
 })
-export class DetailEquipeComponent implements OnInit  {
+export class DetailEquipeComponent implements OnInit {
 
   joueurs: Array<JoueurDto> = []
 
@@ -20,18 +17,17 @@ export class DetailEquipeComponent implements OnInit  {
   id = this.activeRoute.snapshot.params['id']
 
 
-
-
   constructor(private jService: JoueurControllerService,
-              private eService : EquipeControllerService,
+              private eService: EquipeControllerService,
               public activeRoute: ActivatedRoute,
               private router: Router) {
   }
+
   ngOnInit(): void {
     this.findJoueurParteam();
   }
 
-   findJoueurParteam(){
+  findJoueurParteam() {
     this.jService.joueurParTeam({id: this.id}).subscribe({
       next: value => {
         console.log(value)
@@ -45,18 +41,15 @@ export class DetailEquipeComponent implements OnInit  {
     await this.router.navigate(['/equipe'])
   }
 
-  supprimerJoueur(j: JoueurDto){
+  supprimerJoueur(j: JoueurDto) {
     let conf = confirm("Êtes vous sur de vouloir supprimer ?")
     if (conf) {
-      this.jService.suppression2({'id': j.id!}).subscribe(()=>{
+      this.jService.suppression2({'id': j.id!}).subscribe(() => {
         this.findJoueurParteam()
       })
 
     }
   }
-
-
-
 
 
 }

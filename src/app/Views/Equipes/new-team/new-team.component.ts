@@ -17,11 +17,12 @@ export class NewTeamComponent implements OnInit {
     private router: Router
   ) {
   }
+
   ngOnInit(): void {
 
   }
 
-  save(){
+  save() {
     this.eService.nouvelEquipe({
       body: this.equipe
     }).subscribe({
@@ -35,9 +36,6 @@ export class NewTeamComponent implements OnInit {
   async cancel() {
     await this.router.navigate(['equipe'])
   }
-
-
-
 
 
 }

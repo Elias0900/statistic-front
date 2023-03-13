@@ -6,10 +6,9 @@ import {JoueurDto} from "../../../services/models/joueur-dto";
 @Component({
   selector: 'app-ajout-joueur',
   templateUrl: './ajout-joueur.component.html',
-  styles: [
-  ]
+  styleUrls: ['ajout-joueurs.css']
 })
-export class AjoutJoueurComponent implements OnInit{
+export class AjoutJoueurComponent implements OnInit {
 
   joueur: JoueurDto = {}
   id = this.activeRoute.snapshot.params['id']
@@ -18,6 +17,7 @@ export class AjoutJoueurComponent implements OnInit{
               private activeRoute: ActivatedRoute,
               private route: Router) {
   }
+
   ngOnInit(): void {
     this.joueur.equipeId = this.id
 
@@ -29,7 +29,7 @@ export class AjoutJoueurComponent implements OnInit{
       next: () => {
         console.log(this.joueur)
         this.route.navigate(['/detail-equipe', this.id])
-    }
+      }
     })
   }
 }

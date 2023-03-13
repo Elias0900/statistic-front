@@ -1,4 +1,4 @@
-export class EquipeModele{
+export class EquipeModele {
   id!: number;
   nomEquipe!: string;
   joueurId!: number;

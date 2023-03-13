@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="card shadow mb-4">
+<div class="contain">
+  <div class="card">
     <div class="card-body">
       <table class="table table-striped">
         <tr>
@@ -11,15 +11,18 @@
         </tr>
         <tr>
           <td><label>Prenom</label></td>
-          <td><input type="text" [(ngModel)]="joueur.prenom" name="prenom" class="form-control" placeholder="Prenom"></td>
+          <td><input type="text" [(ngModel)]="joueur.prenom" name="prenom" class="form-control" placeholder="Prenom">
+          </td>
         </tr>
         <tr>
           <td><label>Numéro</label></td>
-          <td><input type="number" [(ngModel)]="joueur.numero" name="numero" class="form-control" placeholder="Numéro"></td>
+          <td><input type="number" [(ngModel)]="joueur.numero" name="numero" class="form-control" placeholder="Numéro">
+          </td>
         </tr>
         <tr>
           <td><label>Equipe</label></td>
-          <td><input readonly type="number" [(ngModel)]="joueur.equipeId" name="equipeId" class="form-control" placeholder="{{id}}"></td>
+          <td><input readonly type="number" [(ngModel)]="joueur.equipeId" name="equipeId" class="form-control"
+                     placeholder="{{id}}"></td>
         </tr>
       </table>
       <div class="form-group">

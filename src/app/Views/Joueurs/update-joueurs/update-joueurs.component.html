@@ -7,19 +7,23 @@
         </tr>
         <tr>
           <td><label>Nom</label></td>
-          <td><input type="text" [(ngModel)]="joueur.nom" name="nom" class="form-control" placeholder="{{joueur.nom}}"></td>
+          <td><input type="text" [(ngModel)]="joueur.nom" name="nom" class="form-control" placeholder="{{joueur.nom}}">
+          </td>
         </tr>
         <tr>
           <td><label>Prenom</label></td>
-          <td><input type="text" [(ngModel)]="joueur.prenom" name="prenom" class="form-control" placeholder="{{joueur.prenom}}"></td>
+          <td><input type="text" [(ngModel)]="joueur.prenom" name="prenom" class="form-control"
+                     placeholder="{{joueur.prenom}}"></td>
         </tr>
         <tr>
           <td><label>Numéro</label></td>
-          <td><input type="number" [(ngModel)]="joueur.numero" name="numero" class="form-control" placeholder="{{joueur.numero}}"></td>
+          <td><input type="number" [(ngModel)]="joueur.numero" name="numero" class="form-control"
+                     placeholder="{{joueur.numero}}"></td>
         </tr>
         <tr>
           <td><label>Equipe</label></td>
-          <td><input readonly type="number" [(ngModel)]="joueur.equipeId" name="equipeId" class="form-control" placeholder="{{joueur.equipeId}}"></td>
+          <td><input readonly type="number" [(ngModel)]="joueur.equipeId" name="equipeId" class="form-control"
+                     placeholder="{{joueur.equipeId}}"></td>
         </tr>
       </table>
       <div class="form-group">
