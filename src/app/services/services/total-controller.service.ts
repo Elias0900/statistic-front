@@ -25,7 +25,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation totalPoint
    */
-  static readonly TotalPointPath = '/api/total/{id}/match/{matchId}';
+  static readonly TotalPointPath = '/api/total/{id}/Match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -79,7 +79,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation troispoints1
    */
-  static readonly Troispoints1Path = '/api/total/troispoints/{id}/match/{matchId}';
+  static readonly Troispoints1Path = '/api/total/troispoints/{id}/Match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -133,7 +133,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation rebond
    */
-  static readonly RebondPath = '/api/total/rebond/{id}/match/{matchId}';
+  static readonly RebondPath = '/api/total/rebond/{id}/Match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -190,7 +190,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation pourcentageLf
    */
-  static readonly PourcentageLfPath = '/api/total/pourcentagelf/{id}/match/{matchId}';
+  static readonly PourcentageLfPath = '/api/total/pourcentagelf/{id}/Match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -244,7 +244,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation pourcentage
    */
-  static readonly PourcentagePath = '/api/total/pourcentage/{id}/match/{matchId}';
+  static readonly PourcentagePath = '/api/total/pourcentage/{id}/Match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -298,7 +298,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation passe1
    */
-  static readonly Passe1Path = '/api/total/passe/{id}/match/{matchId}';
+  static readonly Passe1Path = '/api/total/passe/{id}/Match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -352,7 +352,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation interception
    */
-  static readonly InterceptionPath = '/api/total/inter/{id}/match/{matchId}';
+  static readonly InterceptionPath = '/api/total/inter/{id}/Match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -409,7 +409,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation deuxpoints
    */
-  static readonly DeuxpointsPath = '/api/total/deuxpoints/{id}/match/{matchId}';
+  static readonly DeuxpointsPath = '/api/total/deuxpoints/{id}/Match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -463,7 +463,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation contres1
    */
-  static readonly Contres1Path = '/api/total/contre/{id}/match/{matchId}';
+  static readonly Contres1Path = '/api/total/contre/{id}/Match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.

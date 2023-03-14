@@ -1,0 +1,29 @@
+<div class="contain">
+  <h1>Formulaire de match</h1>
+  <div class="form">
+    <form>
+      <div>
+        <label for="nomEquipe1">Equipe domicile:</label>
+        <select id="nomEquipe1" name="nomEquipe1" [(ngModel)]="match.equipeDomicileId">
+          <option value="">Sélectionner une équipe</option>
+          <option *ngFor="let e of equipes " [ngValue]="e.id" name="equipeExterieurId">{{e.nomEquipe}}</option>
+
+        </select>
+      </div>
+      <div>
+        <label for="nomEquipe2">Equipe extérieur:</label>
+        <select class="ext" id="nomEquipe2" name="nomEquipe2" [(ngModel)]="match.equipeExterieurId">
+          <option value="">Sélectionner une équipe</option>
+          <option *ngFor="let e of equipes " [ngValue]="e.id" name="equipeExterieurId">{{e.nomEquipe}}</option>
+        </select>
+      </div>
+      <div>
+        <label for="dateMatch">Date du match:</label>
+        <input type="date" id="dateMatch" name="dateMatch">
+      </div>
+      <div class="bouton">
+        <button class="bouton" (click)="newMatch()">Créer un match</button>
+      </div>
+    </form>
+  </div>
+</div>

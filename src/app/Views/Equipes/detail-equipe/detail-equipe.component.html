@@ -58,12 +58,51 @@
 
     </table>
     <div class="custom-bouton">
-      <td><button href="" class="bouton" [routerLink]="['/ajout-joueurs', id]">Ajouter un Joueur</button>
+      <td><button class="bouton" (click)="openModal()">
+    <span>
+      <span>Ajouter un joueur</span>
+    </span>
+      </button>
       </td>
+
+      <div class="modal" [ngClass]="{'is-active': showModal}">
+        <div class="modal-background" (click)="closeModal()"></div>
+        <div class="modal-content">
+          <!-- Ajouter le formulaire ou le contenu de votre modal ici -->
+          <form>
+            <div >
+              <tr>
+                <th>Ajouter un Joueur</th>
+              </tr>
+              <tr>
+                <td><label>Nom</label></td>
+                <td><input type="text" [(ngModel)]="joueur.nom" name="nom" class="form-control" placeholder="Nom"></td>
+              </tr>
+              <tr>
+                <td><label>Prenom</label></td>
+                <td><input type="text" [(ngModel)]="joueur.prenom" name="prenom" class="form-control" placeholder="Prenom">
+                </td>
+              </tr>
+              <tr>
+                <td><label>Numéro</label></td>
+                <td><input type="number" [(ngModel)]="joueur.numero" name="numero" class="form-control" placeholder="Numéro">
+                </td>
+              </tr>
+              <tr>
+                <td><label>Equipe</label></td>
+                <td><input type="text"  readonly placeholder="{{equipe.nomEquipe}}" name="equipeId" class="form-control"
+                           ></td>
+              </tr>
+              <button type="button" (click)="saveJoueur()" class="btn btn-success mr-2">Ajouter</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
 
       <td><button href="" class="bouton" [routerLink]="['/equipe']">Liste des Equipes</button></td>
 
-      <td><button href="javascript:history.go(-1)" class="bouton">Annuler</button></td>
+      <td><button [routerLink]="['/equipe']" class="bouton">Annuler</button></td>
     </div>
 
     <table class="table table-striped">

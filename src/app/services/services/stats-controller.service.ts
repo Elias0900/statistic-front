@@ -281,7 +281,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation troispoints
    */
-  static readonly TroispointsPath = '/api/stats/match/{eid}/troispoints/{id}';
+  static readonly TroispointsPath = '/api/stats/Match/{eid}/troispoints/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -335,7 +335,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation rebondOff
    */
-  static readonly RebondOffPath = '/api/stats/match/{eid}/rebondoff/{id}';
+  static readonly RebondOffPath = '/api/stats/Match/{eid}/rebondoff/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -389,7 +389,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation rebondDeff
    */
-  static readonly RebondDeffPath = '/api/stats/match/{eid}/rebonddeff/{id}';
+  static readonly RebondDeffPath = '/api/stats/Match/{eid}/rebonddeff/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -443,7 +443,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation tirRate
    */
-  static readonly TirRatePath = '/api/stats/match/{eid}/rateproche/{id}';
+  static readonly TirRatePath = '/api/stats/Match/{eid}/rateproche/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -497,7 +497,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation rateTroispoints
    */
-  static readonly RateTroispointsPath = '/api/stats/match/{eid}/rateloin/{id}';
+  static readonly RateTroispointsPath = '/api/stats/Match/{eid}/rateloin/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -551,7 +551,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation passe
    */
-  static readonly PassePath = '/api/stats/match/{eid}/passe/{id}';
+  static readonly PassePath = '/api/stats/Match/{eid}/passe/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -605,7 +605,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation lfRate
    */
-  static readonly LfRatePath = '/api/stats/match/{eid}/lfrate/{id}';
+  static readonly LfRatePath = '/api/stats/Match/{eid}/lfrate/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -659,7 +659,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation lf
    */
-  static readonly LfPath = '/api/stats/match/{eid}/lf/{id}';
+  static readonly LfPath = '/api/stats/Match/{eid}/lf/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -713,7 +713,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation interceptions
    */
-  static readonly InterceptionsPath = '/api/stats/match/{eid}/inter/{id}';
+  static readonly InterceptionsPath = '/api/stats/Match/{eid}/inter/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -767,7 +767,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation faute
    */
-  static readonly FautePath = '/api/stats/match/{eid}/fautes/{id}';
+  static readonly FautePath = '/api/stats/Match/{eid}/fautes/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -821,7 +821,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation ajoutdeuxpoints
    */
-  static readonly AjoutdeuxpointsPath = '/api/stats/match/{eid}/deuxpoints/{id}';
+  static readonly AjoutdeuxpointsPath = '/api/stats/Match/{eid}/deuxpoints/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -875,7 +875,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation contres
    */
-  static readonly ContresPath = '/api/stats/match/{eid}/contres/{id}';
+  static readonly ContresPath = '/api/stats/Match/{eid}/contres/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -929,7 +929,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation bp
    */
-  static readonly BpPath = '/api/stats/match/{eid}/bp/{id}';
+  static readonly BpPath = '/api/stats/Match/{eid}/bp/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.

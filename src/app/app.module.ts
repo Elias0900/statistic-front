@@ -13,11 +13,11 @@ import { DetailEquipeComponent } from './Views/Equipes/detail-equipe/detail-equi
 import { UpdateEquipeComponent } from './Views/Equipes/update-equipe/update-equipe.component';
 import { AjoutJoueurComponent } from './Views/Joueurs/ajout-joueur/ajout-joueur.component';
 import { UpdateJoueursComponent } from './Views/Joueurs/update-joueurs/update-joueurs.component';
-import { MatchComponent } from './Views/match/match.component';
 import { HomeComponent } from './Views/home/home.component';
 import { CardEquipeComponent } from './Composant/card-equipe/card-equipe.component';
 import { AddTeamModalComponent } from './Composant/add-team-modal/add-team-modal.component';
 import { ToastComponent } from './Composant/toast/toast.component';
+import { NewMatchComponent } from './Views/Match/new-match/new-match.component';
 
 
 
@@ -31,11 +31,11 @@ import { ToastComponent } from './Composant/toast/toast.component';
     UpdateEquipeComponent,
     AjoutJoueurComponent,
     UpdateJoueursComponent,
-    MatchComponent,
     HomeComponent,
     CardEquipeComponent,
     AddTeamModalComponent,
     ToastComponent,
+    NewMatchComponent,
   ],
   imports: [
     BrowserModule,

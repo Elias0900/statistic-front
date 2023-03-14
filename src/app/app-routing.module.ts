@@ -7,6 +7,7 @@ import {UpdateEquipeComponent} from "./Views/Equipes/update-equipe/update-equipe
 import {AjoutJoueurComponent} from "./Views/Joueurs/ajout-joueur/ajout-joueur.component";
 import {UpdateJoueursComponent} from "./Views/Joueurs/update-joueurs/update-joueurs.component";
 import {HomeComponent} from "./Views/home/home.component";
+import {NewMatchComponent} from "./Views/Match/new-match/new-match.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,6 +20,10 @@ const routes: Routes = [
   /** Joueurs **/
   {path: "ajout-joueurs/:id", component: AjoutJoueurComponent},
   {path: "update-joueurs/:joueurid", component: UpdateJoueursComponent},
+
+
+  /** Match **/
+  {path: "new-match", component: NewMatchComponent}
 
 
 ];
