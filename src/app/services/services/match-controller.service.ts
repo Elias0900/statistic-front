@@ -1,15 +1,15 @@
 /* tslint:disable */
 /* eslint-disable */
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpContext, HttpResponse} from '@angular/common/http';
-import {BaseService} from '../base-service';
-import {ApiConfiguration} from '../api-configuration';
-import {StrictHttpResponse} from '../strict-http-response';
-import {RequestBuilder} from '../request-builder';
-import {Observable} from 'rxjs';
-import {filter, map} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpResponse, HttpContext } from '@angular/common/http';
+import { BaseService } from '../base-service';
+import { ApiConfiguration } from '../api-configuration';
+import { StrictHttpResponse } from '../strict-http-response';
+import { RequestBuilder } from '../request-builder';
+import { Observable } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
-import {MatchDto} from '../models/match-dto';
+import { MatchDto } from '../models/match-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -33,9 +33,11 @@ export class MatchControllerService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tousLesMatchs$Response(params?: {},
-                         context?: HttpContext
-  ): Observable<StrictHttpResponse<Array<MatchDto>>> {
+  tousLesMatchs$Response(params?: {
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<MatchDto>>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.TousLesMatchsPath, 'get');
     if (params) {
@@ -59,11 +61,13 @@ export class MatchControllerService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tousLesMatchs(params?: {},
-                context?: HttpContext
-  ): Observable<Array<MatchDto>> {
+  tousLesMatchs(params?: {
+  },
+  context?: HttpContext
 
-    return this.tousLesMatchs$Response(params, context).pipe(
+): Observable<Array<MatchDto>> {
+
+    return this.tousLesMatchs$Response(params,context).pipe(
       map((r: StrictHttpResponse<Array<MatchDto>>) => r.body as Array<MatchDto>)
     );
   }
@@ -80,10 +84,11 @@ export class MatchControllerService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   modifierMatch$Response(params: {
-                           body: MatchDto
-                         },
-                         context?: HttpContext
-  ): Observable<StrictHttpResponse<MatchDto>> {
+    body: MatchDto
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<MatchDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.ModifierMatchPath, 'put');
     if (params) {
@@ -109,12 +114,13 @@ export class MatchControllerService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   modifierMatch(params: {
-                  body: MatchDto
-                },
-                context?: HttpContext
-  ): Observable<MatchDto> {
+    body: MatchDto
+  },
+  context?: HttpContext
 
-    return this.modifierMatch$Response(params, context).pipe(
+): Observable<MatchDto> {
+
+    return this.modifierMatch$Response(params,context).pipe(
       map((r: StrictHttpResponse<MatchDto>) => r.body as MatchDto)
     );
   }
@@ -131,10 +137,11 @@ export class MatchControllerService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   newMatch$Response(params: {
-                      body: MatchDto
-                    },
-                    context?: HttpContext
-  ): Observable<StrictHttpResponse<MatchDto>> {
+    body: MatchDto
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<MatchDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.NewMatchPath, 'post');
     if (params) {
@@ -160,12 +167,13 @@ export class MatchControllerService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   newMatch(params: {
-             body: MatchDto
-           },
-           context?: HttpContext
-  ): Observable<MatchDto> {
+    body: MatchDto
+  },
+  context?: HttpContext
 
-    return this.newMatch$Response(params, context).pipe(
+): Observable<MatchDto> {
+
+    return this.newMatch$Response(params,context).pipe(
       map((r: StrictHttpResponse<MatchDto>) => r.body as MatchDto)
     );
   }
@@ -182,11 +190,12 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   ext3$Response(params: {
-                  id: number;
-                  jid: number;
-                },
-                context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    jid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.Ext3Path, 'get');
     if (params) {
@@ -201,7 +210,7 @@ export class MatchControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -213,13 +222,14 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   ext3(params: {
-         id: number;
-         jid: number;
-       },
-       context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    jid: number;
+  },
+  context?: HttpContext
 
-    return this.ext3$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.ext3$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -236,11 +246,12 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   exterieur$Response(params: {
-                       id: number;
-                       jid: number;
-                     },
-                     context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    jid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.ExterieurPath, 'get');
     if (params) {
@@ -255,7 +266,7 @@ export class MatchControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -267,13 +278,14 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   exterieur(params: {
-              id: number;
-              jid: number;
-            },
-            context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    jid: number;
+  },
+  context?: HttpContext
 
-    return this.exterieur$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.exterieur$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -290,11 +302,12 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   extLf$Response(params: {
-                   id: number;
-                   jid: number;
-                 },
-                 context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    jid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.ExtLfPath, 'get');
     if (params) {
@@ -309,7 +322,7 @@ export class MatchControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -321,13 +334,14 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   extLf(params: {
-          id: number;
-          jid: number;
-        },
-        context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    jid: number;
+  },
+  context?: HttpContext
 
-    return this.extLf$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.extLf$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -344,11 +358,12 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   domicile3$Response(params: {
-                       id: number;
-                       jid: number;
-                     },
-                     context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    jid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.Domicile3Path, 'get');
     if (params) {
@@ -363,7 +378,7 @@ export class MatchControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -375,13 +390,14 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   domicile3(params: {
-              id: number;
-              jid: number;
-            },
-            context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    jid: number;
+  },
+  context?: HttpContext
 
-    return this.domicile3$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.domicile3$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -398,11 +414,12 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   domicile$Response(params: {
-                      id: number;
-                      jid: number;
-                    },
-                    context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    jid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.DomicilePath, 'get');
     if (params) {
@@ -417,7 +434,7 @@ export class MatchControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -429,13 +446,14 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   domicile(params: {
-             id: number;
-             jid: number;
-           },
-           context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    jid: number;
+  },
+  context?: HttpContext
 
-    return this.domicile$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.domicile$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -452,11 +470,12 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   domicileLf$Response(params: {
-                        id: number;
-                        jid: number;
-                      },
-                      context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    jid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.DomicileLfPath, 'get');
     if (params) {
@@ -471,7 +490,7 @@ export class MatchControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -483,13 +502,14 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   domicileLf(params: {
-               id: number;
-               jid: number;
-             },
-             context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    jid: number;
+  },
+  context?: HttpContext
 
-    return this.domicileLf$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.domicileLf$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -506,10 +526,11 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   suppression1$Response(params: {
-                          id: number;
-                        },
-                        context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MatchControllerService.Suppression1Path, 'delete');
     if (params) {
@@ -523,7 +544,7 @@ export class MatchControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -535,12 +556,13 @@ export class MatchControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   suppression1(params: {
-                 id: number;
-               },
-               context?: HttpContext
-  ): Observable<number> {
+    id: number;
+  },
+  context?: HttpContext
 
-    return this.suppression1$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.suppression1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }

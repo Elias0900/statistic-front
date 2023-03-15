@@ -1,9 +1,10 @@
 /* tslint:disable */
-
 /* eslint-disable */
 export interface StatsDto {
   ballonPerdu?: number;
   contre?: number;
+  equipeDomicileId?: number;
+  equipeExterieurId?: number;
   fautes?: number;
   id?: number;
   interception?: number;

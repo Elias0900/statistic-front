@@ -41,7 +41,6 @@ export class NewMatchComponent implements OnInit{
   newMatch(){
     this.mService.newMatch({body: this.match}).subscribe({
       next: () => {
-        this.router.navigate(['/equipe'])
       }
     })
   }

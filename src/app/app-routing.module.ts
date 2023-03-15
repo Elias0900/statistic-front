@@ -8,6 +8,8 @@ import {AjoutJoueurComponent} from "./Views/Joueurs/ajout-joueur/ajout-joueur.co
 import {UpdateJoueursComponent} from "./Views/Joueurs/update-joueurs/update-joueurs.component";
 import {HomeComponent} from "./Views/home/home.component";
 import {NewMatchComponent} from "./Views/Match/new-match/new-match.component";
+import {DebutMatchComponent} from "./Views/Match/debut-match/debut-match.component";
+import {HistoriqueComponent} from "./Views/Match/historique/historique.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -23,7 +25,10 @@ const routes: Routes = [
 
 
   /** Match **/
-  {path: "new-match", component: NewMatchComponent}
+  {path: "new-match", component: NewMatchComponent},
+  {path: "match/:id", component: DebutMatchComponent},
+  {path: "historique", component: HistoriqueComponent}
+
 
 
 ];

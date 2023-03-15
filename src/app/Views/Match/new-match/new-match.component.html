@@ -22,7 +22,7 @@
         <input type="date" id="dateMatch" name="dateMatch">
       </div>
       <div class="bouton">
-        <button class="bouton" (click)="newMatch()">Créer un match</button>
+        <button class="bouton" (click)="newMatch()" [routerLink]="['/match', match.id]">Créer un match</button>
       </div>
     </form>
   </div>

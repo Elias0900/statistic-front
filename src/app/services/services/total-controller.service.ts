@@ -1,15 +1,14 @@
 /* tslint:disable */
 /* eslint-disable */
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpContext, HttpResponse} from '@angular/common/http';
-import {BaseService} from '../base-service';
-import {ApiConfiguration} from '../api-configuration';
-import {StrictHttpResponse} from '../strict-http-response';
-import {RequestBuilder} from '../request-builder';
-import {Observable} from 'rxjs';
-import {filter, map} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpResponse, HttpContext } from '@angular/common/http';
+import { BaseService } from '../base-service';
+import { ApiConfiguration } from '../api-configuration';
+import { StrictHttpResponse } from '../strict-http-response';
+import { RequestBuilder } from '../request-builder';
+import { Observable } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
-import {TotalDto} from '../models/total-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +24,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation totalPoint
    */
-  static readonly TotalPointPath = '/api/total/{id}/Match/{matchId}';
+  static readonly TotalPointPath = '/api/total/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -34,11 +33,12 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   totalPoint$Response(params: {
-                        id: number;
-                        matchId: number;
-                      },
-                      context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.TotalPointPath, 'get');
     if (params) {
@@ -53,7 +53,7 @@ export class TotalControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -65,13 +65,14 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   totalPoint(params: {
-               id: number;
-               matchId: number;
-             },
-             context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
 
-    return this.totalPoint$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.totalPoint$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -79,7 +80,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation troispoints1
    */
-  static readonly Troispoints1Path = '/api/total/troispoints/{id}/Match/{matchId}';
+  static readonly Troispoints1Path = '/api/total/troispoints/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -88,11 +89,12 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   troispoints1$Response(params: {
-                          id: number;
-                          matchId: number;
-                        },
-                        context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.Troispoints1Path, 'get');
     if (params) {
@@ -107,7 +109,7 @@ export class TotalControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -119,13 +121,14 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   troispoints1(params: {
-                 id: number;
-                 matchId: number;
-               },
-               context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
 
-    return this.troispoints1$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.troispoints1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -133,7 +136,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation rebond
    */
-  static readonly RebondPath = '/api/total/rebond/{id}/Match/{matchId}';
+  static readonly RebondPath = '/api/total/rebond/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -142,16 +145,15 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   rebond$Response(params: {
-                    jDto: TotalDto;
-                    id: number;
-                    matchId: number;
-                  },
-                  context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.RebondPath, 'get');
     if (params) {
-      rb.query('jDto', params.jDto, {});
       rb.path('id', params.id, {});
       rb.path('matchId', params.matchId, {});
     }
@@ -163,7 +165,7 @@ export class TotalControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -175,14 +177,14 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   rebond(params: {
-           jDto: TotalDto;
-           id: number;
-           matchId: number;
-         },
-         context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
 
-    return this.rebond$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.rebond$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -190,7 +192,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation pourcentageLf
    */
-  static readonly PourcentageLfPath = '/api/total/pourcentagelf/{id}/Match/{matchId}';
+  static readonly PourcentageLfPath = '/api/total/pourcentagelf/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -199,11 +201,12 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   pourcentageLf$Response(params: {
-                           id: number;
-                           matchId: number;
-                         },
-                         context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.PourcentageLfPath, 'get');
     if (params) {
@@ -218,7 +221,7 @@ export class TotalControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -230,13 +233,14 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   pourcentageLf(params: {
-                  id: number;
-                  matchId: number;
-                },
-                context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
 
-    return this.pourcentageLf$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.pourcentageLf$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -244,7 +248,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation pourcentage
    */
-  static readonly PourcentagePath = '/api/total/pourcentage/{id}/Match/{matchId}';
+  static readonly PourcentagePath = '/api/total/pourcentage/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -253,11 +257,12 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   pourcentage$Response(params: {
-                         id: number;
-                         matchId: number;
-                       },
-                       context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.PourcentagePath, 'get');
     if (params) {
@@ -272,7 +277,7 @@ export class TotalControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -284,13 +289,14 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   pourcentage(params: {
-                id: number;
-                matchId: number;
-              },
-              context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
 
-    return this.pourcentage$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.pourcentage$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -298,7 +304,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation passe1
    */
-  static readonly Passe1Path = '/api/total/passe/{id}/Match/{matchId}';
+  static readonly Passe1Path = '/api/total/passe/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -307,11 +313,12 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   passe1$Response(params: {
-                    id: number;
-                    matchId: number;
-                  },
-                  context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.Passe1Path, 'get');
     if (params) {
@@ -326,7 +333,7 @@ export class TotalControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -338,13 +345,14 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   passe1(params: {
-           id: number;
-           matchId: number;
-         },
-         context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
 
-    return this.passe1$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.passe1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -352,7 +360,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation interception
    */
-  static readonly InterceptionPath = '/api/total/inter/{id}/Match/{matchId}';
+  static readonly InterceptionPath = '/api/total/inter/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -361,16 +369,15 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   interception$Response(params: {
-                          jDto: TotalDto;
-                          id: number;
-                          matchId: number;
-                        },
-                        context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.InterceptionPath, 'get');
     if (params) {
-      rb.query('jDto', params.jDto, {});
       rb.path('id', params.id, {});
       rb.path('matchId', params.matchId, {});
     }
@@ -382,7 +389,7 @@ export class TotalControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -394,14 +401,14 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   interception(params: {
-                 jDto: TotalDto;
-                 id: number;
-                 matchId: number;
-               },
-               context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
 
-    return this.interception$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.interception$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -409,7 +416,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation deuxpoints
    */
-  static readonly DeuxpointsPath = '/api/total/deuxpoints/{id}/Match/{matchId}';
+  static readonly DeuxpointsPath = '/api/total/deuxpoints/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -418,11 +425,12 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   deuxpoints$Response(params: {
-                        id: number;
-                        matchId: number;
-                      },
-                      context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.DeuxpointsPath, 'get');
     if (params) {
@@ -437,7 +445,7 @@ export class TotalControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -449,13 +457,14 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   deuxpoints(params: {
-               id: number;
-               matchId: number;
-             },
-             context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
 
-    return this.deuxpoints$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.deuxpoints$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -463,7 +472,7 @@ export class TotalControllerService extends BaseService {
   /**
    * Path part for operation contres1
    */
-  static readonly Contres1Path = '/api/total/contre/{id}/Match/{matchId}';
+  static readonly Contres1Path = '/api/total/contre/{id}/match/{matchId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -472,16 +481,15 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   contres1$Response(params: {
-                      jDto: TotalDto;
-                      id: number;
-                      matchId: number;
-                    },
-                    context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, TotalControllerService.Contres1Path, 'get');
     if (params) {
-      rb.query('jDto', params.jDto, {});
       rb.path('id', params.id, {});
       rb.path('matchId', params.matchId, {});
     }
@@ -493,7 +501,7 @@ export class TotalControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -505,14 +513,14 @@ export class TotalControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   contres1(params: {
-             jDto: TotalDto;
-             id: number;
-             matchId: number;
-           },
-           context?: HttpContext
-  ): Observable<number> {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
 
-    return this.contres1$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.contres1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }

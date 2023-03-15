@@ -13,6 +13,7 @@
   "security": [
     {
       "BearerAuth": [
+
       ]
     }
   ],
@@ -1029,14 +1030,6 @@
         "operationId": "rebond",
         "parameters": [
           {
-            "name": "jDto",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/TotalDTO"
-            }
-          },
-          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -1201,14 +1194,6 @@
         "operationId": "interception",
         "parameters": [
           {
-            "name": "jDto",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/TotalDTO"
-            }
-          },
-          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -1290,14 +1275,6 @@
         ],
         "operationId": "contres_1",
         "parameters": [
-          {
-            "name": "jDto",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/TotalDTO"
-            }
-          },
           {
             "name": "id",
             "in": "path",
@@ -2162,6 +2139,14 @@
           "totalId": {
             "type": "integer",
             "format": "int64"
+          },
+          "equipeDomicileId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "equipeExterieurId": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -2176,9 +2161,15 @@
             "type": "integer",
             "format": "int64"
           },
+          "equipeDomicileIdNomEquipe": {
+            "type": "string"
+          },
           "equipeExterieurId": {
             "type": "integer",
             "format": "int64"
+          },
+          "equipeExterieurIdNomEquipe": {
+            "type": "string"
           },
           "scoreDomicile": {
             "type": "integer",
@@ -2191,10 +2182,6 @@
           "date": {
             "type": "string",
             "format": "date-time"
-          },
-          "statsId": {
-            "type": "integer",
-            "format": "int64"
           }
         }
       },
@@ -2242,55 +2229,20 @@
           "matchId": {
             "type": "integer",
             "format": "int64"
-          }
-        }
-      },
-      "TotalDTO": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
           },
-          "totalPoints": {
-            "type": "number",
-            "format": "double"
+          "statsDomicileId": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
           },
-          "totalRebonds": {
-            "type": "number",
-            "format": "double"
-          },
-          "totalPasseD": {
-            "type": "number",
-            "format": "double"
-          },
-          "totalContre": {
-            "type": "number",
-            "format": "double"
-          },
-          "totalInterception": {
-            "type": "number",
-            "format": "double"
-          },
-          "pourcentageDeuxPts": {
-            "type": "number",
-            "format": "double"
-          },
-          "pourcentageTroisPts": {
-            "type": "number",
-            "format": "double"
-          },
-          "pourcentageLF": {
-            "type": "number",
-            "format": "double"
-          },
-          "pourcentage": {
-            "type": "number",
-            "format": "double"
-          },
-          "statsId": {
-            "type": "integer",
-            "format": "int64"
+          "statsExterieurId": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         }
       }

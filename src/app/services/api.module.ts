@@ -1,15 +1,15 @@
 /* tslint:disable */
 /* eslint-disable */
-import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {ApiConfiguration, ApiConfigurationParams} from './api-configuration';
+import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
-import {StatsControllerService} from './services/stats-controller.service';
-import {MatchControllerService} from './services/match-controller.service';
-import {JoueurControllerService} from './services/joueur-controller.service';
-import {EquipeControllerService} from './services/equipe-controller.service';
-import {TotalControllerService} from './services/total-controller.service';
-import {MoyenneControllerService} from './services/moyenne-controller.service';
+import { StatsControllerService } from './services/stats-controller.service';
+import { MatchControllerService } from './services/match-controller.service';
+import { JoueurControllerService } from './services/joueur-controller.service';
+import { EquipeControllerService } from './services/equipe-controller.service';
+import { TotalControllerService } from './services/total-controller.service';
+import { MoyenneControllerService } from './services/moyenne-controller.service';
 
 /**
  * Module that provides all services and configuration.
@@ -41,7 +41,7 @@ export class ApiModule {
     }
   }
 
-  constructor(
+  constructor( 
     @Optional() @SkipSelf() parentModule: ApiModule,
     @Optional() http: HttpClient
   ) {
@@ -50,7 +50,7 @@ export class ApiModule {
     }
     if (!http) {
       throw new Error('You need to import the HttpClientModule in your AppModule! \n' +
-        'See also https://github.com/angular/angular/issues/20575');
+      'See also https://github.com/angular/angular/issues/20575');
     }
   }
 }

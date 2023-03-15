@@ -1,15 +1,15 @@
 /* tslint:disable */
 /* eslint-disable */
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpContext, HttpResponse} from '@angular/common/http';
-import {BaseService} from '../base-service';
-import {ApiConfiguration} from '../api-configuration';
-import {StrictHttpResponse} from '../strict-http-response';
-import {RequestBuilder} from '../request-builder';
-import {Observable} from 'rxjs';
-import {filter, map} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpResponse, HttpContext } from '@angular/common/http';
+import { BaseService } from '../base-service';
+import { ApiConfiguration } from '../api-configuration';
+import { StrictHttpResponse } from '../strict-http-response';
+import { RequestBuilder } from '../request-builder';
+import { Observable } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
-import {StatsDto} from '../models/stats-dto';
+import { StatsDto } from '../models/stats-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -33,9 +33,11 @@ export class StatsControllerService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tousLesStats$Response(params?: {},
-                        context?: HttpContext
-  ): Observable<StrictHttpResponse<Array<StatsDto>>> {
+  tousLesStats$Response(params?: {
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<StatsDto>>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.TousLesStatsPath, 'get');
     if (params) {
@@ -59,11 +61,13 @@ export class StatsControllerService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tousLesStats(params?: {},
-               context?: HttpContext
-  ): Observable<Array<StatsDto>> {
+  tousLesStats(params?: {
+  },
+  context?: HttpContext
 
-    return this.tousLesStats$Response(params, context).pipe(
+): Observable<Array<StatsDto>> {
+
+    return this.tousLesStats$Response(params,context).pipe(
       map((r: StrictHttpResponse<Array<StatsDto>>) => r.body as Array<StatsDto>)
     );
   }
@@ -80,11 +84,12 @@ export class StatsControllerService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   modifierStats$Response(params: {
-                           id: number;
-                           body: StatsDto
-                         },
-                         context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    body: StatsDto
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.ModifierStatsPath, 'put');
     if (params) {
@@ -111,13 +116,14 @@ export class StatsControllerService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   modifierStats(params: {
-                  id: number;
-                  body: StatsDto
-                },
-                context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    body: StatsDto
+  },
+  context?: HttpContext
 
-    return this.modifierStats$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.modifierStats$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -134,10 +140,11 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   findByJoueurId$Response(params: {
-                            id: number;
-                          },
-                          context?: HttpContext
-  ): Observable<StrictHttpResponse<Array<StatsDto>>> {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<StatsDto>>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.FindByJoueurIdPath, 'get');
     if (params) {
@@ -163,12 +170,13 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   findByJoueurId(params: {
-                   id: number;
-                 },
-                 context?: HttpContext
-  ): Observable<Array<StatsDto>> {
+    id: number;
+  },
+  context?: HttpContext
 
-    return this.findByJoueurId$Response(params, context).pipe(
+): Observable<Array<StatsDto>> {
+
+    return this.findByJoueurId$Response(params,context).pipe(
       map((r: StrictHttpResponse<Array<StatsDto>>) => r.body as Array<StatsDto>)
     );
   }
@@ -185,11 +193,12 @@ export class StatsControllerService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   newStats$Response(params: {
-                      id: number;
-                      body: StatsDto
-                    },
-                    context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    body: StatsDto
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.NewStatsPath, 'post');
     if (params) {
@@ -216,13 +225,14 @@ export class StatsControllerService extends BaseService {
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   newStats(params: {
-             id: number;
-             body: StatsDto
-           },
-           context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    body: StatsDto
+  },
+  context?: HttpContext
 
-    return this.newStats$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.newStats$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -239,10 +249,11 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   suppression$Response(params: {
-                         id: number;
-                       },
-                       context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.SuppressionPath, 'delete');
     if (params) {
@@ -256,7 +267,7 @@ export class StatsControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -268,12 +279,13 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   suppression(params: {
-                id: number;
-              },
-              context?: HttpContext
-  ): Observable<number> {
+    id: number;
+  },
+  context?: HttpContext
 
-    return this.suppression$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.suppression$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -281,7 +293,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation troispoints
    */
-  static readonly TroispointsPath = '/api/stats/Match/{eid}/troispoints/{id}';
+  static readonly TroispointsPath = '/api/stats/match/{eid}/troispoints/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -290,11 +302,12 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   troispoints$Response(params: {
-                         id: number;
-                         eid: number;
-                       },
-                       context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.TroispointsPath, 'post');
     if (params) {
@@ -321,13 +334,14 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   troispoints(params: {
-                id: number;
-                eid: number;
-              },
-              context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
 
-    return this.troispoints$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.troispoints$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -335,7 +349,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation rebondOff
    */
-  static readonly RebondOffPath = '/api/stats/Match/{eid}/rebondoff/{id}';
+  static readonly RebondOffPath = '/api/stats/match/{eid}/rebondoff/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -344,11 +358,12 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   rebondOff$Response(params: {
-                       id: number;
-                       eid: number;
-                     },
-                     context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.RebondOffPath, 'post');
     if (params) {
@@ -375,13 +390,14 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   rebondOff(params: {
-              id: number;
-              eid: number;
-            },
-            context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
 
-    return this.rebondOff$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.rebondOff$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -389,7 +405,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation rebondDeff
    */
-  static readonly RebondDeffPath = '/api/stats/Match/{eid}/rebonddeff/{id}';
+  static readonly RebondDeffPath = '/api/stats/match/{eid}/rebonddeff/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -398,11 +414,12 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   rebondDeff$Response(params: {
-                        id: number;
-                        eid: number;
-                      },
-                      context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.RebondDeffPath, 'post');
     if (params) {
@@ -429,13 +446,14 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   rebondDeff(params: {
-               id: number;
-               eid: number;
-             },
-             context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
 
-    return this.rebondDeff$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.rebondDeff$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -443,7 +461,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation tirRate
    */
-  static readonly TirRatePath = '/api/stats/Match/{eid}/rateproche/{id}';
+  static readonly TirRatePath = '/api/stats/match/{eid}/rateproche/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -452,11 +470,12 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   tirRate$Response(params: {
-                     id: number;
-                     eid: number;
-                   },
-                   context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.TirRatePath, 'post');
     if (params) {
@@ -483,13 +502,14 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   tirRate(params: {
-            id: number;
-            eid: number;
-          },
-          context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
 
-    return this.tirRate$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.tirRate$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -497,7 +517,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation rateTroispoints
    */
-  static readonly RateTroispointsPath = '/api/stats/Match/{eid}/rateloin/{id}';
+  static readonly RateTroispointsPath = '/api/stats/match/{eid}/rateloin/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -506,11 +526,12 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   rateTroispoints$Response(params: {
-                             id: number;
-                             eid: number;
-                           },
-                           context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.RateTroispointsPath, 'post');
     if (params) {
@@ -537,13 +558,14 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   rateTroispoints(params: {
-                    id: number;
-                    eid: number;
-                  },
-                  context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
 
-    return this.rateTroispoints$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.rateTroispoints$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -551,7 +573,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation passe
    */
-  static readonly PassePath = '/api/stats/Match/{eid}/passe/{id}';
+  static readonly PassePath = '/api/stats/match/{eid}/passe/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -560,11 +582,12 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   passe$Response(params: {
-                   id: number;
-                   eid: number;
-                 },
-                 context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.PassePath, 'post');
     if (params) {
@@ -591,13 +614,14 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   passe(params: {
-          id: number;
-          eid: number;
-        },
-        context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
 
-    return this.passe$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.passe$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -605,7 +629,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation lfRate
    */
-  static readonly LfRatePath = '/api/stats/Match/{eid}/lfrate/{id}';
+  static readonly LfRatePath = '/api/stats/match/{eid}/lfrate/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -614,11 +638,12 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   lfRate$Response(params: {
-                    id: number;
-                    eid: number;
-                  },
-                  context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.LfRatePath, 'post');
     if (params) {
@@ -645,13 +670,14 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   lfRate(params: {
-           id: number;
-           eid: number;
-         },
-         context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
 
-    return this.lfRate$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.lfRate$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -659,7 +685,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation lf
    */
-  static readonly LfPath = '/api/stats/Match/{eid}/lf/{id}';
+  static readonly LfPath = '/api/stats/match/{eid}/lf/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -668,11 +694,12 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   lf$Response(params: {
-                id: number;
-                eid: number;
-              },
-              context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.LfPath, 'post');
     if (params) {
@@ -699,13 +726,14 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   lf(params: {
-       id: number;
-       eid: number;
-     },
-     context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
 
-    return this.lf$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.lf$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -713,7 +741,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation interceptions
    */
-  static readonly InterceptionsPath = '/api/stats/Match/{eid}/inter/{id}';
+  static readonly InterceptionsPath = '/api/stats/match/{eid}/inter/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -722,11 +750,12 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   interceptions$Response(params: {
-                           id: number;
-                           eid: number;
-                         },
-                         context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.InterceptionsPath, 'post');
     if (params) {
@@ -753,13 +782,14 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   interceptions(params: {
-                  id: number;
-                  eid: number;
-                },
-                context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
 
-    return this.interceptions$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.interceptions$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -767,7 +797,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation faute
    */
-  static readonly FautePath = '/api/stats/Match/{eid}/fautes/{id}';
+  static readonly FautePath = '/api/stats/match/{eid}/fautes/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -776,11 +806,12 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   faute$Response(params: {
-                   id: number;
-                   eid: number;
-                 },
-                 context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.FautePath, 'post');
     if (params) {
@@ -807,13 +838,14 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   faute(params: {
-          id: number;
-          eid: number;
-        },
-        context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
 
-    return this.faute$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.faute$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -821,7 +853,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation ajoutdeuxpoints
    */
-  static readonly AjoutdeuxpointsPath = '/api/stats/Match/{eid}/deuxpoints/{id}';
+  static readonly AjoutdeuxpointsPath = '/api/stats/match/{eid}/deuxpoints/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -830,11 +862,12 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   ajoutdeuxpoints$Response(params: {
-                             id: number;
-                             eid: number;
-                           },
-                           context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.AjoutdeuxpointsPath, 'post');
     if (params) {
@@ -861,13 +894,14 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   ajoutdeuxpoints(params: {
-                    id: number;
-                    eid: number;
-                  },
-                  context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
 
-    return this.ajoutdeuxpoints$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.ajoutdeuxpoints$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -875,7 +909,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation contres
    */
-  static readonly ContresPath = '/api/stats/Match/{eid}/contres/{id}';
+  static readonly ContresPath = '/api/stats/match/{eid}/contres/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -884,11 +918,12 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   contres$Response(params: {
-                     id: number;
-                     eid: number;
-                   },
-                   context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.ContresPath, 'post');
     if (params) {
@@ -915,13 +950,14 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   contres(params: {
-            id: number;
-            eid: number;
-          },
-          context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
 
-    return this.contres$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.contres$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -929,7 +965,7 @@ export class StatsControllerService extends BaseService {
   /**
    * Path part for operation bp
    */
-  static readonly BpPath = '/api/stats/Match/{eid}/bp/{id}';
+  static readonly BpPath = '/api/stats/match/{eid}/bp/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -938,11 +974,12 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   bp$Response(params: {
-                id: number;
-                eid: number;
-              },
-              context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.BpPath, 'post');
     if (params) {
@@ -969,13 +1006,14 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   bp(params: {
-       id: number;
-       eid: number;
-     },
-     context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+    eid: number;
+  },
+  context?: HttpContext
 
-    return this.bp$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.bp$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }
@@ -992,10 +1030,11 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   findById$Response(params: {
-                      id: number;
-                    },
-                    context?: HttpContext
-  ): Observable<StrictHttpResponse<StatsDto>> {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<StatsDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, StatsControllerService.FindByIdPath, 'get');
     if (params) {
@@ -1021,12 +1060,13 @@ export class StatsControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   findById(params: {
-             id: number;
-           },
-           context?: HttpContext
-  ): Observable<StatsDto> {
+    id: number;
+  },
+  context?: HttpContext
 
-    return this.findById$Response(params, context).pipe(
+): Observable<StatsDto> {
+
+    return this.findById$Response(params,context).pipe(
       map((r: StrictHttpResponse<StatsDto>) => r.body as StatsDto)
     );
   }

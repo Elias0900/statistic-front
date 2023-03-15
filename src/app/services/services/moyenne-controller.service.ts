@@ -1,13 +1,13 @@
 /* tslint:disable */
 /* eslint-disable */
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpContext, HttpResponse} from '@angular/common/http';
-import {BaseService} from '../base-service';
-import {ApiConfiguration} from '../api-configuration';
-import {StrictHttpResponse} from '../strict-http-response';
-import {RequestBuilder} from '../request-builder';
-import {Observable} from 'rxjs';
-import {filter, map} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpResponse, HttpContext } from '@angular/common/http';
+import { BaseService } from '../base-service';
+import { ApiConfiguration } from '../api-configuration';
+import { StrictHttpResponse } from '../strict-http-response';
+import { RequestBuilder } from '../request-builder';
+import { Observable } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 
 @Injectable({
@@ -33,10 +33,11 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   troispoints2$Response(params: {
-                          joueurId: number;
-                        },
-                        context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    joueurId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MoyenneControllerService.Troispoints2Path, 'get');
     if (params) {
@@ -50,7 +51,7 @@ export class MoyenneControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -62,12 +63,13 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   troispoints2(params: {
-                 joueurId: number;
-               },
-               context?: HttpContext
-  ): Observable<number> {
+    joueurId: number;
+  },
+  context?: HttpContext
 
-    return this.troispoints2$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.troispoints2$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -84,10 +86,11 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   tir$Response(params: {
-                 joueurId: number;
-               },
-               context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    joueurId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MoyenneControllerService.TirPath, 'get');
     if (params) {
@@ -101,7 +104,7 @@ export class MoyenneControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -113,12 +116,13 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   tir(params: {
-        joueurId: number;
-      },
-      context?: HttpContext
-  ): Observable<number> {
+    joueurId: number;
+  },
+  context?: HttpContext
 
-    return this.tir$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.tir$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -135,10 +139,11 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   rebond1$Response(params: {
-                     joueurId: number;
-                   },
-                   context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    joueurId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MoyenneControllerService.Rebond1Path, 'get');
     if (params) {
@@ -152,7 +157,7 @@ export class MoyenneControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -164,12 +169,13 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   rebond1(params: {
-            joueurId: number;
-          },
-          context?: HttpContext
-  ): Observable<number> {
+    joueurId: number;
+  },
+  context?: HttpContext
 
-    return this.rebond1$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.rebond1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -186,10 +192,11 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   avgPoint$Response(params: {
-                      joueurId: number;
-                    },
-                    context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    joueurId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MoyenneControllerService.AvgPointPath, 'get');
     if (params) {
@@ -203,7 +210,7 @@ export class MoyenneControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -215,12 +222,13 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   avgPoint(params: {
-             joueurId: number;
-           },
-           context?: HttpContext
-  ): Observable<number> {
+    joueurId: number;
+  },
+  context?: HttpContext
 
-    return this.avgPoint$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.avgPoint$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -237,10 +245,11 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   passe2$Response(params: {
-                    joueurId: number;
-                  },
-                  context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    joueurId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MoyenneControllerService.Passe2Path, 'get');
     if (params) {
@@ -254,7 +263,7 @@ export class MoyenneControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -266,12 +275,13 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   passe2(params: {
-           joueurId: number;
-         },
-         context?: HttpContext
-  ): Observable<number> {
+    joueurId: number;
+  },
+  context?: HttpContext
 
-    return this.passe2$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.passe2$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -288,10 +298,11 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   lf1$Response(params: {
-                 joueurId: number;
-               },
-               context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    joueurId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MoyenneControllerService.Lf1Path, 'get');
     if (params) {
@@ -305,7 +316,7 @@ export class MoyenneControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -317,12 +328,13 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   lf1(params: {
-        joueurId: number;
-      },
-      context?: HttpContext
-  ): Observable<number> {
+    joueurId: number;
+  },
+  context?: HttpContext
 
-    return this.lf1$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.lf1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -339,10 +351,11 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   inter$Response(params: {
-                   joueurId: number;
-                 },
-                 context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    joueurId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MoyenneControllerService.InterPath, 'get');
     if (params) {
@@ -356,7 +369,7 @@ export class MoyenneControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -368,12 +381,13 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   inter(params: {
-          joueurId: number;
-        },
-        context?: HttpContext
-  ): Observable<number> {
+    joueurId: number;
+  },
+  context?: HttpContext
 
-    return this.inter$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.inter$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -390,10 +404,11 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   deuxpts$Response(params: {
-                     joueurId: number;
-                   },
-                   context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    joueurId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MoyenneControllerService.DeuxptsPath, 'get');
     if (params) {
@@ -407,7 +422,7 @@ export class MoyenneControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -419,12 +434,13 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   deuxpts(params: {
-            joueurId: number;
-          },
-          context?: HttpContext
-  ): Observable<number> {
+    joueurId: number;
+  },
+  context?: HttpContext
 
-    return this.deuxpts$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.deuxpts$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }
@@ -441,10 +457,11 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   contre$Response(params: {
-                    joueurId: number;
-                  },
-                  context?: HttpContext
-  ): Observable<StrictHttpResponse<number>> {
+    joueurId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
 
     const rb = new RequestBuilder(this.rootUrl, MoyenneControllerService.ContrePath, 'get');
     if (params) {
@@ -458,7 +475,7 @@ export class MoyenneControllerService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({body: parseFloat(String((r as HttpResponse<any>).body))}) as StrictHttpResponse<number>;
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
       })
     );
   }
@@ -470,12 +487,13 @@ export class MoyenneControllerService extends BaseService {
    * This method doesn't expect any request body.
    */
   contre(params: {
-           joueurId: number;
-         },
-         context?: HttpContext
-  ): Observable<number> {
+    joueurId: number;
+  },
+  context?: HttpContext
 
-    return this.contre$Response(params, context).pipe(
+): Observable<number> {
+
+    return this.contre$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }

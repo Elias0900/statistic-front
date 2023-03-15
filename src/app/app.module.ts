@@ -18,6 +18,9 @@ import { CardEquipeComponent } from './Composant/card-equipe/card-equipe.compone
 import { AddTeamModalComponent } from './Composant/add-team-modal/add-team-modal.component';
 import { ToastComponent } from './Composant/toast/toast.component';
 import { NewMatchComponent } from './Views/Match/new-match/new-match.component';
+import { DebutMatchComponent } from './Views/Match/debut-match/debut-match.component';
+import { HistoriqueComponent } from './Views/Match/historique/historique.component';
+import { CardMatchComponent } from './Composant/card-match/card-match.component';
 
 
 
@@ -36,6 +39,9 @@ import { NewMatchComponent } from './Views/Match/new-match/new-match.component';
     AddTeamModalComponent,
     ToastComponent,
     NewMatchComponent,
+    DebutMatchComponent,
+    HistoriqueComponent,
+    CardMatchComponent,
   ],
   imports: [
     BrowserModule,
