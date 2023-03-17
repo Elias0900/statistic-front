@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {MatchControllerService} from "../../../services/services/match-controller.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatchDto} from "../../../services/models/match-dto";
+import {JoueurControllerService} from "../../../services/services/joueur-controller.service";
+import {EquipeControllerService} from "../../../services/services/equipe-controller.service";
+import {JoueurDto} from "../../../services/models/joueur-dto";
 
 @Component({
   selector: 'app-debut-match',
@@ -11,6 +14,9 @@ import {MatchDto} from "../../../services/models/match-dto";
 export class DebutMatchComponent implements OnInit{
 
   match: MatchDto = {}
+  joueurs: Array<JoueurDto> = []
+
+  joueur: JoueurDto = {}
   error! : string
   matchId = this.activeRoute.snapshot.params["id"]
   constructor(private mService: MatchControllerService,
@@ -22,6 +28,8 @@ export class DebutMatchComponent implements OnInit{
   ngOnInit(): void {
     this.findMatch()
   }
+
+
 
   findMatch(){
     this.mService.findById1({id: this.matchId}).subscribe({
@@ -36,12 +44,6 @@ export class DebutMatchComponent implements OnInit{
   }
 
   findJoueurParteam() {
-    this.jService.joueurParTeam({id: this.id}).subscribe({
-      next: value => {
-        console.log(value)
-        this.joueurs = value
-      }
-    })
   }
 
 }

@@ -284,4 +284,110 @@ export class EquipeControllerService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation extByMatchId
+   */
+  static readonly ExtByMatchIdPath = '/api/equipe/ext/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `extByMatchId()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  extByMatchId$Response(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<EquipeDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, EquipeControllerService.ExtByMatchIdPath, 'get');
+    if (params) {
+      rb.query('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<EquipeDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `extByMatchId$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  extByMatchId(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<EquipeDto> {
+
+    return this.extByMatchId$Response(params,context).pipe(
+      map((r: StrictHttpResponse<EquipeDto>) => r.body as EquipeDto)
+    );
+  }
+
+  /**
+   * Path part for operation domByMatchId
+   */
+  static readonly DomByMatchIdPath = '/api/equipe/dom/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `domByMatchId()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  domByMatchId$Response(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<EquipeDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, EquipeControllerService.DomByMatchIdPath, 'get');
+    if (params) {
+      rb.query('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<EquipeDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `domByMatchId$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  domByMatchId(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<EquipeDto> {
+
+    return this.domByMatchId$Response(params,context).pipe(
+      map((r: StrictHttpResponse<EquipeDto>) => r.body as EquipeDto)
+    );
+  }
+
 }

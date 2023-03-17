@@ -1,4 +1,5 @@
 
+
 {
   "openapi": "3.0.1",
   "info": {
@@ -2122,6 +2123,68 @@
           }
         }
       }
+    },
+    "/api/equipe/ext/{id}": {
+      "get": {
+        "tags": [
+          "equipe-controller"
+        ],
+        "operationId": "extByMatchId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipeDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/equipe/dom/{id}": {
+      "get": {
+        "tags": [
+          "equipe-controller"
+        ],
+        "operationId": "domByMatchId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipeDTO"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -2333,12 +2396,12 @@
       "Resource": {
         "type": "object",
         "properties": {
+          "resourceInputSource": {
+            "$ref": "#/components/schemas/InputSource"
+          },
           "resourceLoadTimeStamp": {
             "type": "integer",
             "format": "int64"
-          },
-          "resourceInputSource": {
-            "$ref": "#/components/schemas/InputSource"
           }
         }
       }
