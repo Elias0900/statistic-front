@@ -6,8 +6,7 @@ import {MatchDto} from "../../../services/models/match-dto";
 @Component({
   selector: 'app-debut-match',
   templateUrl: './debut-match.component.html',
-  styles: [
-  ]
+  styleUrls: ['debut-match.css']
 })
 export class DebutMatchComponent implements OnInit{
 
@@ -16,6 +15,8 @@ export class DebutMatchComponent implements OnInit{
   matchId = this.activeRoute.snapshot.params["id"]
   constructor(private mService: MatchControllerService,
               private route: Router,
+              private jService: JoueurControllerService,
+              private eService: EquipeControllerService,
               private activeRoute: ActivatedRoute) {
   }
   ngOnInit(): void {
@@ -30,6 +31,15 @@ export class DebutMatchComponent implements OnInit{
       },
       error: err => {
         this.error = err.error.messages
+      }
+    })
+  }
+
+  findJoueurParteam() {
+    this.jService.joueurParTeam({id: this.id}).subscribe({
+      next: value => {
+        console.log(value)
+        this.joueurs = value
       }
     })
   }

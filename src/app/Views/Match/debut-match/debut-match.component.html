@@ -1,19 +1,38 @@
 <div class="liste-des-equipes-container">
 <app-nav-bar></app-nav-bar>
   <div class="liste-des-equipes-features">
-    <h1 class="liste-des-equipes-text3">Match</h1>
-    <tr>
-      <th>{{match.equipeDomicileIdNomEquipe}}</th>
-      <th>vs</th>
-      <th>{{match.equipeExterieurIdNomEquipe}}</th>
-    </tr>
-    <tr>
-      <td>{{match.scoreDomicile}}</td>
-      <td>-</td>
-      <th>{{match.scoreExterieur}}</th>
-    </tr>
-    <div class="liste-des-equipes-container2">
-    </div>
-  </div>
+    <div class="liste-des-equipes-features">
+      <h1 class="liste-des-equipes-text3">
+        <span class="domicile">{{match.equipeDomicileIdNomEquipe}}</span>
+        <span class="versus">vs</span>
+        <span class="exterieur">{{match.equipeExterieurIdNomEquipe}}</span>
+      </h1>
+      <h4 class="score">
+        <span class="score-domicile">{{match.scoreDomicile}}</span>
 
+        <span class="score-exterieur">{{match.scoreExterieur}}</span>
+      </h4>
+    </div>
+
+  </div>
+  <table class="table custom-table">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Numéro</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let j of joueurs">
+    <tr>
+      <td>{{j.nom}}</td>
+      <td>{{j.prenom}}</td>
+      <td>{{j.numero}}</td>
+    </tr>
+    </tbody>
+
+  </table>
 </div>
