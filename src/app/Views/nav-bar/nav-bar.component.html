@@ -1,0 +1,37 @@
+
+<header data-role="Accordion" class="liste-des-equipes-header">
+  <img
+    alt="logo"
+    src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
+    class="liste-des-equipes-image"
+  />
+  <div class="liste-des-equipes-separator"></div>
+  <nav class="liste-des-equipes-nav">
+    <div>
+      <button class="liste-des-equipes-button button" [routerLink]="['']">Accueil</button>
+      <button class="liste-des-equipes-button button" [routerLink]="['/equipe']">Equipes</button>
+      <button class="liste-des-equipes-button button" [routerLink]="['/new-match']">Nouveau Match</button>
+      <button class="liste-des-equipes-button button" [routerLink]="['/historique']">
+          <span>
+            <span>Historiques</span>
+            <br/>
+          </span>
+      </button>
+    </div>
+  </nav>
+  <div data-role="AccordionHeader" class="liste-des-equipes-accordion-header">
+    <svg viewBox="0 0 1024 1024" class="liste-des-equipes-icon">
+      <path
+        d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+      ></path>
+    </svg>
+  </div>
+  <div
+    data-role="AccordionContent"
+    class="liste-des-equipes-accordion-content"
+  >
+    <div class="liste-des-equipes-nav1">
+    </div>
+  </div>
+</header>
+

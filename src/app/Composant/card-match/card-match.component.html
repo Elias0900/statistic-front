@@ -1,5 +1,6 @@
 <div class="card-feature-card" [ngClass]="rootClassName">
+  <div class="date-field">{{ date ? formatDate(date) : ''}}</div>
   <p class="card-text">{{ equipeDomicileIdNomEquipe }} vs {{equipeExterieurIdNomEquipe}}</p>
-  <p></p>
+  <p>{{scoreDomicile}} - {{scoreExterieur}}</p>
   <button class="bouton" (click)="supprimerMatch($event)">Supprimer</button>
 </div>

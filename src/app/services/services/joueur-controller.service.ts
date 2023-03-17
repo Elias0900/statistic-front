@@ -179,24 +179,24 @@ export class JoueurControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation findById1
+   * Path part for operation findById2
    */
-  static readonly FindById1Path = '/api/joueur/{id}';
+  static readonly FindById2Path = '/api/joueur/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `findById1()` instead.
+   * To access only the response body, use `findById2()` instead.
    *
    * This method doesn't expect any request body.
    */
-  findById1$Response(params: {
+  findById2$Response(params: {
     id: number;
   },
   context?: HttpContext
 
 ): Observable<StrictHttpResponse<JoueurDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, JoueurControllerService.FindById1Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, JoueurControllerService.FindById2Path, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -215,18 +215,18 @@ export class JoueurControllerService extends BaseService {
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `findById1$Response()` instead.
+   * To access the full response (for headers, for example), `findById2$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  findById1(params: {
+  findById2(params: {
     id: number;
   },
   context?: HttpContext
 
 ): Observable<JoueurDto> {
 
-    return this.findById1$Response(params,context).pipe(
+    return this.findById2$Response(params,context).pipe(
       map((r: StrictHttpResponse<JoueurDto>) => r.body as JoueurDto)
     );
   }

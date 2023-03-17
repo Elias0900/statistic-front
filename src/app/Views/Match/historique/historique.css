@@ -106,12 +106,16 @@
 }
 
 .liste-des-equipes-container2 {
+  width: 100%;
   display: flex;
   grid-column-start: span;
   grid-gap: 32px;
-  justify-content: space-between; /* Ajout pour distribuer l'espace entre les colonnes */
+  justify-content: center; /* Ajout pour distribuer l'espace entre les colonnes */
   padding-bottom: 62px;
   flex-wrap: wrap;
+  align-content: space-between;
+  align-items: center;
+  flex-direction: row;
 }
 
 
@@ -181,10 +185,7 @@
   }
 
   .liste-des-equipes-features {
-    padding-top: 32px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-bottom: 32px;
+    padding: 32px 16px;
   }
 
   .liste-des-equipes-container2 {

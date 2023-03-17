@@ -33,14 +33,16 @@ export class NewMatchComponent implements OnInit{
         this.equipes = value
       },
       error: err => {
-        this.error = err.error.message()
+        this.error = err.error.message
       }
     })
   }
 
   newMatch(){
     this.mService.newMatch({body: this.match}).subscribe({
-      next: () => {
+      next: value => {
+        const matchId = value.id
+        this.router.navigate(['/match', matchId])
       }
     })
   }

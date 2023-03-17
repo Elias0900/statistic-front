@@ -1,37 +1,6 @@
 <div class="home-container">
   <div class="home-hero">
-    <header data-role="Accordion" class="home-header">
-      <img
-        alt="logo"
-        src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
-        class="home-image"
-      />
-      <div class="home-separator"></div>
-      <nav class="home-nav">
-        <div>
-          <div>
-            <button class="button" [routerLink]="['/equipe']">Equipes</button>
-            <button class="button" [routerLink]="['/historique']">
-            <span>
-              <span>Historiques</span>
-              <br/>
-            </span>
-            </button>
-          </div>
-        </div>
-      </nav>
-      <div data-role="AccordionHeader" class="home-accordion-header">
-        <svg viewBox="0 0 1024 1024" class="home-icon">
-          <path
-            d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
-          ></path>
-        </svg>
-      </div>
-      <div data-role="AccordionContent" class="home-accordion-content">
-        <div class="home-nav1">
-        </div>
-      </div>
-    </header>
+    <app-nav-bar></app-nav-bar>
     <div class="home-hero1">
       <img
         alt="image"

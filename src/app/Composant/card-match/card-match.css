@@ -3,7 +3,8 @@
 }
 
 .card-feature-card {
-  width: 30%;
+  position: relative; /* ajouter cette ligne */
+  width: 15%;
   height: 55%;
   display: flex;
   padding: 18px;
@@ -28,9 +29,16 @@
   margin-bottom: 32px;
   text-align: center;
 }
+.date-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: bold;
+  font-size: 10px;
+  /* ajouter d'autres styles selon vos besoins */
+}
 
 .bouton{
-  position: absolute;
   bottom: 0;
   right: 0;
   margin: 5px;

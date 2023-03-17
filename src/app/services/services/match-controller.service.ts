@@ -179,6 +179,112 @@ export class MatchControllerService extends BaseService {
   }
 
   /**
+   * Path part for operation findById1
+   */
+  static readonly FindById1Path = '/api/match/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `findById1()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  findById1$Response(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<MatchDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, MatchControllerService.FindById1Path, 'get');
+    if (params) {
+      rb.query('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<MatchDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `findById1$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  findById1(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<MatchDto> {
+
+    return this.findById1$Response(params,context).pipe(
+      map((r: StrictHttpResponse<MatchDto>) => r.body as MatchDto)
+    );
+  }
+
+  /**
+   * Path part for operation suppression1
+   */
+  static readonly Suppression1Path = '/api/match/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `suppression1()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  suppression1$Response(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
+
+    const rb = new RequestBuilder(this.rootUrl, MatchControllerService.Suppression1Path, 'delete');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `suppression1$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  suppression1(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<number> {
+
+    return this.suppression1$Response(params,context).pipe(
+      map((r: StrictHttpResponse<number>) => r.body as number)
+    );
+  }
+
+  /**
    * Path part for operation ext3
    */
   static readonly Ext3Path = '/api/match/scoreext3pts/{id}/joueur/{jid}';
@@ -510,59 +616,6 @@ export class MatchControllerService extends BaseService {
 ): Observable<number> {
 
     return this.domicileLf$Response(params,context).pipe(
-      map((r: StrictHttpResponse<number>) => r.body as number)
-    );
-  }
-
-  /**
-   * Path part for operation suppression1
-   */
-  static readonly Suppression1Path = '/api/match/{id}';
-
-  /**
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `suppression1()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  suppression1$Response(params: {
-    id: number;
-  },
-  context?: HttpContext
-
-): Observable<StrictHttpResponse<number>> {
-
-    const rb = new RequestBuilder(this.rootUrl, MatchControllerService.Suppression1Path, 'delete');
-    if (params) {
-      rb.path('id', params.id, {});
-    }
-
-    return this.http.request(rb.build({
-      responseType: 'json',
-      accept: 'application/json',
-      context: context
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
-      })
-    );
-  }
-
-  /**
-   * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `suppression1$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  suppression1(params: {
-    id: number;
-  },
-  context?: HttpContext
-
-): Observable<number> {
-
-    return this.suppression1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
     );
   }

@@ -20,7 +20,7 @@ export class UpdateJoueursComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.jService.findById1({id: this.id}).subscribe(value => {
+    this.jService.findById2({id: this.id}).subscribe(value => {
       console.log(value)
       this.joueur = value
     })

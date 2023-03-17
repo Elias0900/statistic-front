@@ -1,3 +1,4 @@
+
 {
   "openapi": "3.0.1",
   "info": {
@@ -1022,6 +1023,37 @@
         }
       }
     },
+    "/api/total/total-joueur/{totalId}": {
+      "get": {
+        "tags": [
+          "total-controller"
+        ],
+        "operationId": "generateBulletinByStudentAndPromo",
+        "parameters": [
+          {
+            "name": "totalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resource"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/total/rebond/{id}/match/{matchId}": {
       "get": {
         "tags": [
@@ -1628,6 +1660,67 @@
         }
       }
     },
+    "/api/match/{id}": {
+      "get": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "findById_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "suppression_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/match/scoreext3pts/{id}/joueur/{jid}": {
       "get": {
         "tags": [
@@ -1879,7 +1972,7 @@
         "tags": [
           "joueur-controller"
         ],
-        "operationId": "findById_1",
+        "operationId": "findById_2",
         "parameters": [
           {
             "name": "id",
@@ -2004,38 +2097,6 @@
           "equipe-controller"
         ],
         "operationId": "suppression_3",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "integer",
-                  "format": "int64"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/match/{id}": {
-      "delete": {
-        "tags": [
-          "match-controller"
-        ],
-        "operationId": "suppression_1",
         "parameters": [
           {
             "name": "id",
@@ -2243,6 +2304,41 @@
               "type": "integer",
               "format": "int64"
             }
+          }
+        }
+      },
+      "InputSource": {
+        "type": "object",
+        "properties": {
+          "publicId": {
+            "type": "string"
+          },
+          "systemId": {
+            "type": "string"
+          },
+          "byteStream": {
+            "type": "object"
+          },
+          "encoding": {
+            "type": "string"
+          },
+          "characterStream": {
+            "type": "object"
+          },
+          "empty": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "resourceLoadTimeStamp": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "resourceInputSource": {
+            "$ref": "#/components/schemas/InputSource"
           }
         }
       }

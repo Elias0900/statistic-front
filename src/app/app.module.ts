@@ -21,6 +21,7 @@ import { NewMatchComponent } from './Views/Match/new-match/new-match.component';
 import { DebutMatchComponent } from './Views/Match/debut-match/debut-match.component';
 import { HistoriqueComponent } from './Views/Match/historique/historique.component';
 import { CardMatchComponent } from './Composant/card-match/card-match.component';
+import { NavBarComponent } from './Views/nav-bar/nav-bar.component';
 
 
 
@@ -42,6 +43,7 @@ import { CardMatchComponent } from './Composant/card-match/card-match.component'
     DebutMatchComponent,
     HistoriqueComponent,
     CardMatchComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,

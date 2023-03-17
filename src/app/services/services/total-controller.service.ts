@@ -9,6 +9,7 @@ import { RequestBuilder } from '../request-builder';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
+import { Resource } from '../models/resource';
 
 @Injectable({
   providedIn: 'root',
@@ -130,6 +131,59 @@ export class TotalControllerService extends BaseService {
 
     return this.troispoints1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
+    );
+  }
+
+  /**
+   * Path part for operation generateBulletinByStudentAndPromo
+   */
+  static readonly GenerateBulletinByStudentAndPromoPath = '/api/total/total-joueur/{totalId}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `generateBulletinByStudentAndPromo()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  generateBulletinByStudentAndPromo$Response(params: {
+    totalId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Resource>> {
+
+    const rb = new RequestBuilder(this.rootUrl, TotalControllerService.GenerateBulletinByStudentAndPromoPath, 'get');
+    if (params) {
+      rb.path('totalId', params.totalId, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'blob',
+      accept: 'application/octet-stream',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Resource>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `generateBulletinByStudentAndPromo$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  generateBulletinByStudentAndPromo(params: {
+    totalId: number;
+  },
+  context?: HttpContext
+
+): Observable<Resource> {
+
+    return this.generateBulletinByStudentAndPromo$Response(params,context).pipe(
+      map((r: StrictHttpResponse<Resource>) => r.body as Resource)
     );
   }
 

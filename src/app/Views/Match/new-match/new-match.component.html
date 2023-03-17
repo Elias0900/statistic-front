@@ -1,4 +1,5 @@
 <div class="contain">
+  <app-nav-bar></app-nav-bar>
   <h1>Formulaire de match</h1>
   <div class="form">
     <form>
@@ -19,10 +20,10 @@
       </div>
       <div>
         <label for="dateMatch">Date du match:</label>
-        <input type="date" id="dateMatch" name="dateMatch">
+        <input type="date" id="dateMatch" name="dateMatch" [(ngModel)]="match.date">
       </div>
       <div class="bouton">
-        <button class="bouton" (click)="newMatch()" [routerLink]="['/match', match.id]">Créer un match</button>
+        <button class="bouton" (click)="newMatch()" >Créer un match</button>
       </div>
     </form>
   </div>

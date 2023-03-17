@@ -15,6 +15,7 @@ export class CardEquipeComponent {
   image_alt: string = 'image'
 
   @Input() nomEquipe: string | undefined;
+
   @Input() equipe: EquipeDto = {};
 
   @Input()

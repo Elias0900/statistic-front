@@ -14,11 +14,22 @@ export class CardMatchComponent {
 
   @Input() equipeDomicileIdNomEquipe: string | undefined;
   @Input() equipeExterieurIdNomEquipe: string | undefined;
+  @Input() scoreDomicile: number | undefined;
+  @Input() scoreExterieur: number | undefined;
+  @Input() date: string | undefined;
   @Input() equipe: EquipeDto = {};
 
   @Input()
   supprimerMatch(event: Event) {
     event.stopPropagation();
     // Logique de suppression ici
+  }
+
+  formatDate(date?: string): string {
+    const dateObject = new Date(date!);
+    const day = dateObject.getDate().toString().padStart(2, '0');
+    const month = (dateObject.getMonth() + 1).toString().padStart(2, '0');
+    const year = dateObject.getFullYear().toString();
+    return `${day}/${month}/${year}`;
   }
 }
