@@ -22,6 +22,7 @@
           <th>N°</th>
           <th>Nom</th>
           <th>Prenom</th>
+          <th></th>
         </tr>
       </thead>
       <tbody *ngFor="let j of joueursDom">
@@ -29,6 +30,7 @@
           <td>{{j.numero}}</td>
           <td>{{j.nom}}</td>
           <td>{{j.prenom}}</td>
+          <td><button [routerLink]="['/stats-joueur', match.id, j.id]">Voir Stats</button></td>
         </tr>
         <div class="modal" [ngClass]="{'is-active': showModal}">
           <div class="modal-background" (click)="closeModal()"></div>
@@ -77,6 +79,7 @@
         <td>N°</td>
         <th>Nom</th>
         <th>Prenom</th>
+        <th></th>
       </tr>
     </thead>
     <tbody *ngFor="let jExt of joueursExt">
@@ -84,6 +87,8 @@
         <td>{{jExt.numero}}</td>
         <td>{{jExt.nom}}</td>
         <td>{{jExt.prenom}}</td>
+        <td><button [routerLink]="['/stats-joueur', match.id, jExt.id]">Voir Stats</button></td>
+
       </tr>
       <div class="modal" [ngClass]="{'is-active': showModal}">
         <div class="modal-background" (click)="closeModal()"></div>

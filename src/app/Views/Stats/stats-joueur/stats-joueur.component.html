@@ -3,14 +3,14 @@
     <div class="liste-des-equipes-features">
         <div class="liste-des-equipes-features">
             <h1 class="liste-des-equipes-text3">
-                <span class="domicile"></span>
+                <span class="domicile">{{match.equipeDomicileIdNomEquipe}}</span>
                 <span class="versus">vs</span>
-                <span class="exterieur"></span>
+                <span class="exterieur">{{match.equipeExterieurIdNomEquipe}}</span>
             </h1>
             <h4 class="score">
-                <span class="score-domicile"></span>
+                <span class="score-domicile">{{match.scoreDomicile}}</span>
 
-                <span class="score-exterieur"></span>
+                <span class="score-exterieur">{{match.scoreExterieur}}</span>
             </h4>
         </div>
 
@@ -22,13 +22,40 @@
                     <th>N°</th>
                     <th>Nom</th>
                     <th>Prenom</th>
+                    <th>Points</th>
+                    <th>Tir %</th>
+                    <th>2 Points</th>
+                    <th>% 2Pts</th>
+                    <th>3 Points</th>
+                    <th>% 3 Points</th>
+                    <th>Lancers-Francs</th>
+                    <th>% Lancer-Francs</th>
+                    <th>Passe D</th>
+                    <th>Rebonds</th>
+                    <th>Interceptions</th>
+                    <th>Contre</th>
                 </tr>
             </thead>
             <tbody >
                 <tr>
-                   
+                    <td>{{joueur.numero}}</td>
+                    <td>{{joueur.nom}}</td>
+                    <td>{{joueur.prenom}}</td>
+                    <td>{{total.totalPoints}}</td>
+                    <td>{{ total.pourcentage!.toFixed(0) }}</td>
+                    <td></td>
+                    <td>{{total.pourcentageDeuxPts}}</td>
+                    <td></td>
+                    <td>{{total.pourcentageTroisPts}}</td>
+                    <td></td>
+                    <td>{{total.pourcentageLF}}</td>
+                    <td>{{total.totalPasseD}}</td>
+                    <td>{{total.totalRebonds}}</td>
+                    <td>{{total.totalInterception}}</td>
+                    <td>{{total.totalContre}}</td>
                 </tr>
             </tbody>
         </table>
+        <button class="retour-match" [routerLink]="['/match', match.id]">Retour au Match</button>
     </div>
 </div>

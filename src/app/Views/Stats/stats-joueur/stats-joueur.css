@@ -80,10 +80,14 @@
   
   .align-table {
    width: 85%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
   }
   
   .custom-table {
     width: 100%;
+   
   }
   
   .liste-des-equipes-separator {
@@ -178,3 +182,7 @@
     margin-right: 10px;
   }
   
+
+  .retour-match{    
+    width: 15%;
+  }
