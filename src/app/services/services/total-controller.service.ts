@@ -9,6 +9,7 @@ import { RequestBuilder } from '../request-builder';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
+import { TotalDto } from '../models/total-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -354,6 +355,62 @@ export class TotalControllerService extends BaseService {
 
     return this.passe1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
+    );
+  }
+
+  /**
+   * Path part for operation total
+   */
+  static readonly TotalPath = '/api/total/joueur/{id}/match/{matchId}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `total()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  total$Response(params: {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<TotalDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, TotalControllerService.TotalPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+      rb.path('matchId', params.matchId, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<TotalDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `total$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  total(params: {
+    id: number;
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<TotalDto> {
+
+    return this.total$Response(params,context).pipe(
+      map((r: StrictHttpResponse<TotalDto>) => r.body as TotalDto)
     );
   }
 

@@ -1,5 +1,5 @@
 <div class="liste-des-equipes-container">
-<app-nav-bar></app-nav-bar>
+  <app-nav-bar></app-nav-bar>
   <div class="liste-des-equipes-features">
     <div class="liste-des-equipes-features">
       <h1 class="liste-des-equipes-text3">
@@ -16,72 +16,121 @@
 
   </div>
   <div class="align-table">
-  <table class="table custom-table dom">
-    <thead>
-    <tr>
-      <th>N°</th>
-      <th>Nom</th>
-      <th>Prenom</th>
-    </tr>
-    </thead>
-    <tbody *ngFor="let j of joueursDom">
-      <tr (click)="openModal(j)" >
-        <td>{{j.numero}}</td>
-        <td>{{j.nom}}</td>
-        <td>{{j.prenom}}</td>
-     </tr>
-    <div class="modal" [ngClass]="{'is-active': showModal}">
-      <div class="modal-background" (click)="closeModal()"></div>
-      <div class="modal-content">
-        <!-- Ajouter le formulaire ou le contenu de votre modal ici -->
-        <form>
-          <div class="col-sm-4 col-md-4 col-lg-4">
-            <button (click)="deuxpts(j)">Deux Points</button>
-          </div>
+    <table class="table custom-table dom">
+      <thead>
+        <tr>
+          <th>N°</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let j of joueursDom">
+        <tr class="hover-ligne" (click)="openModal(j)">
+          <td>{{j.numero}}</td>
+          <td>{{j.nom}}</td>
+          <td>{{j.prenom}}</td>
+        </tr>
+        <div class="modal" [ngClass]="{'is-active': showModal}">
+          <div class="modal-background" (click)="closeModal()"></div>
+          <div class="modal-content">
+            <!-- Ajouter le formulaire ou le contenu de votre modal ici -->
+            <form>
+              <div class="row justify-content-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4 d-flex flex-column align-items-center">
+                  <h5>Tirs</h5>
+                  <button (click)="deuxpts(j)">Deux Points</button>
+                  <button (click)="troisPts(j)">Trois Points</button>
+                  <button (click)="lf(j)">Lancer-Francs</button>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 d-flex flex-column align-items-center">
+                  <h5>Tir Manqués</h5>
+                  <button (click)="deuxptsMiss(j)">Deux Points Raté</button>
+                  <button (click)="troisPtsMiss(j)">Trois Points Raté</button>
+                  <button (click)="lfRate(j)">Lancer-Francs Raté</button>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 d-flex flex-column align-items-center">
+                  <h5 class="titre-stats">Stats</h5>
+                  <button (click)="passeD(j)">Passe Décisive</button>
+                  <button (click)="rebondDeff(j)">Rebonds Deff</button>
+                  <button (click)="rebondOff(j)">Rebonds Off</button>
+                  <button (click)="interc(j)">Interception</button>
+                  <button (click)="ballonPerdu(j)">Ballons Perdus</button>
+                  <button (click)="faute(j)">Fautes</button>
+                </div>
+
+              </div>
           <div class="mt-2 col-2 ">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+              (click)="closeModal()">Close</button>
+
           </div>
-        </form>
-      </div>
-    </div>
-    </tbody>
+          </form>
+        </div>
+  </div>
+  </tbody>
 
   </table>
   <table class="table custom-table ext">
     <thead>
-    <tr>
-      <td>N°</td>
-      <th>Nom</th>
-      <th>Prenom</th>   
-    </tr>
+      <tr>
+        <td>N°</td>
+        <th>Nom</th>
+        <th>Prenom</th>
+      </tr>
     </thead>
-    <tbody *ngFor="let jExt of joueursExt" >
-    <tr (click)="openModal(jExt)">
-      <td>{{jExt.numero}}</td>
-      <td>{{jExt.nom}}</td>
-      <td>{{jExt.prenom}}</td>
-    </tr>
-    <div class="modal" [ngClass]="{'is-active': showModal}">
-      <div class="modal-background" (click)="closeModal()"></div>
-      <div class="modal-content">
-        <!-- Ajouter le formulaire ou le contenu de votre modal ici -->
-        <form>
-          <div class="col-sm-4 col-md-4 col-lg-4">
-            
-            <button (click)="deuxpts(jExt)">Deux Points</button>
-          </div>
-          <div class="mt-2 col-2 ">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
-          </div>
-        </form>
+    <tbody *ngFor="let jExt of joueursExt">
+      <tr class="hover-ligne" (click)="openModal(jExt)">
+        <td>{{jExt.numero}}</td>
+        <td>{{jExt.nom}}</td>
+        <td>{{jExt.prenom}}</td>
+      </tr>
+      <div class="modal" [ngClass]="{'is-active': showModal}">
+        <div class="modal-background" (click)="closeModal()"></div>
+        <div class="modal-content">
+          <!-- Ajouter le formulaire ou le contenu de votre modal ici -->
+          <form>
+            <div class="row justify-content-center">
+
+              <div class="col-sm-4 col-md-4 col-lg-4 d-flex flex-column align-items-center">
+                <h5>Tirs</h5>
+                <button (click)="deuxpts(jExt)">Deux Points</button>
+                <button (click)="troisPts(jExt)">Trois Points</button>
+                <button (click)="lf(jExt)">Lancer-Francs</button>
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4 d-flex flex-column align-items-center">
+                <h5>Tir Manqués</h5>
+                <button (click)="deuxptsMiss(jExt)">Deux Points Raté</button>
+                <button (click)="troisPtsMiss(jExt)">Trois Points Raté</button>
+                <button (click)="lfRate(jExt)">Lancer-Francs Raté</button>
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4 d-flex flex-column align-items-center">
+                <h5 class="titre-stats">Stats</h5>
+                <button (click)="passeD(jExt)">Passe Décisive</button>
+                <button (click)="rebondDeff(jExt)">Rebonds Deff</button>
+                <button (click)="rebondOff(jExt)">Rebonds Off</button>
+                <button (click)="interc(jExt)">Interception</button>
+                <button (click)="ballonPerdu(jExt)">Ballons Perdus</button>
+                <button (click)="faute(jExt)">Fautes</button>
+              </div>
+
+            </div>
+            <div class="row justify-content-center">
+            <div class="mt-2 col-2">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                (click)="closeModal()">Close</button>
+            </div>
+            <div class="mt-2 col-3 ">
+              <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" (click)="genererTotal(jExt)"
+                >Générer Total</button>
+            </div>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
     </tbody>
 
   </table>
-  
+
 </div>
 </div>
-
-
-  

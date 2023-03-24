@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatchDto} from "../../../services/models/match-dto";
 import {JoueurDto} from "../../../services/models/joueur-dto";
-import { JoueurControllerService, MatchControllerService, EquipeControllerService, StatsControllerService } from 'src/app/services/services';
+import { JoueurControllerService, MatchControllerService, EquipeControllerService, StatsControllerService, PdfControllerService } from 'src/app/services/services';
 
 @Component({
   selector: 'app-debut-match',
@@ -24,6 +24,7 @@ export class DebutMatchComponent implements OnInit{
               private jService: JoueurControllerService,
               private eService: EquipeControllerService,
               private sService: StatsControllerService,
+              private pService: PdfControllerService,
               private activeRoute: ActivatedRoute) {
   }
 
@@ -33,6 +34,14 @@ export class DebutMatchComponent implements OnInit{
     this.findJoueurExtParteam()
     console.log(this.showModal)
     console.log(this.joueursDom)
+  }
+
+  genererTotal(j: JoueurDto){
+    this.pService.totalPdf({matchId: this.currentMatchId, joueurId: j.id!}).subscribe({
+      next: ()=> {
+        console.log("téléchargement reussi !")
+      }
+    })
   }
 
 
@@ -90,9 +99,158 @@ export class DebutMatchComponent implements OnInit{
         next:  () => {
           console.log(j)
           this.findMatch()
+          this.showModal = false
         }
       }
     )
   }
 
+  deuxptsMiss(j: JoueurDto){
+    this.sService.tirRate({id: this.selectedJoueur.id!, eid: this.currentMatchId}).subscribe(
+      {
+        next:  () => {
+          console.log(j)
+          this.findMatch()
+          this.showModal = false
+
+        }
+      }
+    )
+  }
+  troisPts(j: JoueurDto){
+    this.sService.troispoints({id: this.selectedJoueur.id!, eid: this.currentMatchId}).subscribe(
+      {
+        next:  () => {
+          console.log(j)
+          this.findMatch()
+          this.showModal = false
+
+        }
+      }
+    )
+  }
+
+  troisPtsMiss(j: JoueurDto){
+    this.sService.rateTroispoints({id: this.selectedJoueur.id!, eid: this.currentMatchId}).subscribe(
+      {
+        next:  () => {
+          console.log(j)
+          this.findMatch()
+          this.showModal = false
+
+        }
+      }
+    )
+  }
+
+  lf(j: JoueurDto){
+    this.sService.lf({id: this.selectedJoueur.id!, eid: this.currentMatchId}).subscribe(
+      {
+        next:  () => {
+          console.log(j)
+          this.findMatch()
+          this.showModal = false
+
+        }
+      }
+    )
+  }
+
+  lfRate(j: JoueurDto){
+    this.sService.lfRate({id: this.selectedJoueur.id!, eid: this.currentMatchId}).subscribe(
+      {
+        next:  () => {
+          console.log(j)
+          this.findMatch()
+          this.showModal = false
+
+        }
+      }
+    )
+  }
+
+  passeD(j: JoueurDto){
+    this.sService.passe({id: this.selectedJoueur.id!, eid: this.currentMatchId}).subscribe(
+      {
+        next:  () => {
+          console.log(j)
+          this.findMatch()
+          this.showModal = false
+
+        }
+      }
+    )
+  }
+
+  rebondOff(j: JoueurDto){
+    this.sService.rebondOff({id: this.selectedJoueur.id!, eid: this.currentMatchId}).subscribe(
+      {
+        next:  () => {
+          console.log(j)
+          this.findMatch()
+          this.showModal = false
+
+        }
+      }
+    )
+  }
+
+  rebondDeff(j: JoueurDto){
+    this.sService.rebondDeff({id: this.selectedJoueur.id!, eid: this.currentMatchId}).subscribe(
+      {
+        next:  () => {
+          console.log(j)
+          this.findMatch()
+          this.showModal = false
+
+        }
+      }
+    )
+  }
+
+  ballonPerdu(j: JoueurDto){
+    this.sService.bp({id: this.selectedJoueur.id!, eid: this.currentMatchId}).subscribe(
+      {
+        next:  () => {
+          console.log(j)
+          this.findMatch()
+          this.showModal = false
+
+        }
+      }
+    )
+  }
+
+  interc(j: JoueurDto){
+    this.sService.interceptions({id: this.selectedJoueur.id!, eid: this.currentMatchId}).subscribe(
+      {
+        next:  () => {
+          console.log(j)
+          this.findMatch()
+        }
+      }
+    )
+  }
+
+  contre(j: JoueurDto){
+    this.sService.contres({id: this.selectedJoueur.id!, eid: this.currentMatchId}).subscribe(
+      {
+        next:  () => {
+          console.log(j)
+          this.findMatch()
+        }
+      }
+    )
+  }
+
+  faute(j: JoueurDto){
+    this.sService.faute({id: this.selectedJoueur.id!, eid: this.currentMatchId}).subscribe(
+      {
+        next:  () => {
+          console.log(j)
+          this.findMatch()
+        }
+      }
+    )
+  }
 }

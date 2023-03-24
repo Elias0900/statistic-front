@@ -146,7 +146,7 @@
   color: #ccc;
 }
 
-tr:hover{
+tr.hover-ligne:hover{
   background-color: #e0e0e0;
 }
 
@@ -159,4 +159,25 @@ tr:hover{
 
 .custom-table.ext {
   margin-left: 50px;
+}
+
+button {
+  background-color: transparent;
+  width: 100%;
+  transition: 0.3s;
+  margin-bottom: 5px;
+  border: solid 1px;
+  box-sizing: border-box; /* inclure la bordure dans le calcul de la taille totale */
+
+}
+
+button:hover {
+  transform: scale(1.02);
+  background-color: rgba(77, 77, 77, 0.28);
+  color: antiquewhite;
+}
+
+
+.btn.btn-secondary{
+  margin-right: 10px;
 }
