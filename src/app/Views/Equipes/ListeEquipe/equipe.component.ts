@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {EquipeDto} from "../../../services/models/equipe-dto";
-import {EquipeControllerService} from "../../../services/services/equipe-controller.service";
 import {Router} from "@angular/router";
 import {ToastService} from "../../../Composant/toast/toast-service";
 import {ToastComponent} from "../../../Composant/toast/toast.component";
+import { EquipeControllerService } from 'src/app/services/services';
 
 
 @Component({

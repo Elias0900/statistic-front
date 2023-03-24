@@ -16,46 +16,72 @@
 
   </div>
   <div class="align-table">
-  <table class="table custom-table">
+  <table class="table custom-table dom">
     <thead>
     <tr>
+      <th>N°</th>
       <th>Nom</th>
       <th>Prenom</th>
-      <th>Numéro</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
     </thead>
-    <tbody *ngFor="let j of joueurs">
-    <tr>
-      <td>{{j.nom}}</td>
-      <td>{{j.prenom}}</td>
-      <td>{{j.numero}}</td>
-    </tr>
+    <tbody *ngFor="let j of joueursDom">
+      <tr (click)="openModal(j)" >
+        <td>{{j.numero}}</td>
+        <td>{{j.nom}}</td>
+        <td>{{j.prenom}}</td>
+     </tr>
+    <div class="modal" [ngClass]="{'is-active': showModal}">
+      <div class="modal-background" (click)="closeModal()"></div>
+      <div class="modal-content">
+        <!-- Ajouter le formulaire ou le contenu de votre modal ici -->
+        <form>
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <button (click)="deuxpts(j)">Deux Points</button>
+          </div>
+          <div class="mt-2 col-2 ">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
     </tbody>
 
   </table>
-  <table class="table custom-table">
+  <table class="table custom-table ext">
     <thead>
     <tr>
+      <td>N°</td>
       <th>Nom</th>
-      <th>Prenom</th>
-      <th>Numéro</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Prenom</th>   
     </tr>
     </thead>
-    <tbody *ngFor="let j of joueurs">
-    <tr>
-      <td>{{j.nom}}</td>
-      <td>{{j.prenom}}</td>
-      <td>{{j.numero}}</td>
+    <tbody *ngFor="let jExt of joueursExt" >
+    <tr (click)="openModal(jExt)">
+      <td>{{jExt.numero}}</td>
+      <td>{{jExt.nom}}</td>
+      <td>{{jExt.prenom}}</td>
     </tr>
+    <div class="modal" [ngClass]="{'is-active': showModal}">
+      <div class="modal-background" (click)="closeModal()"></div>
+      <div class="modal-content">
+        <!-- Ajouter le formulaire ou le contenu de votre modal ici -->
+        <form>
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            
+            <button (click)="deuxpts(jExt)">Deux Points</button>
+          </div>
+          <div class="mt-2 col-2 ">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
     </tbody>
 
   </table>
+  
+</div>
+</div>
 
-</div>
-</div>
+
+  
