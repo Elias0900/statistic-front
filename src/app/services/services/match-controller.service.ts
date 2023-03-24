@@ -9,6 +9,7 @@ import { RequestBuilder } from '../request-builder';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
+import { JoueurDto } from '../models/joueur-dto';
 import { MatchDto } from '../models/match-dto';
 
 @Injectable({
@@ -281,6 +282,112 @@ export class MatchControllerService extends BaseService {
 
     return this.suppression1$Response(params,context).pipe(
       map((r: StrictHttpResponse<number>) => r.body as number)
+    );
+  }
+
+  /**
+   * Path part for operation joueurDom
+   */
+  static readonly JoueurDomPath = '/api/match/team/{matchId}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `joueurDom()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  joueurDom$Response(params: {
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<JoueurDto>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, MatchControllerService.JoueurDomPath, 'get');
+    if (params) {
+      rb.path('matchId', params.matchId, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<JoueurDto>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `joueurDom$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  joueurDom(params: {
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<Array<JoueurDto>> {
+
+    return this.joueurDom$Response(params,context).pipe(
+      map((r: StrictHttpResponse<Array<JoueurDto>>) => r.body as Array<JoueurDto>)
+    );
+  }
+
+  /**
+   * Path part for operation joueurExt
+   */
+  static readonly JoueurExtPath = '/api/match/team/ext/{matchId}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `joueurExt()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  joueurExt$Response(params: {
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<JoueurDto>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, MatchControllerService.JoueurExtPath, 'get');
+    if (params) {
+      rb.path('matchId', params.matchId, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<JoueurDto>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `joueurExt$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  joueurExt(params: {
+    matchId: number;
+  },
+  context?: HttpContext
+
+): Observable<Array<JoueurDto>> {
+
+    return this.joueurExt$Response(params,context).pipe(
+      map((r: StrictHttpResponse<Array<JoueurDto>>) => r.body as Array<JoueurDto>)
     );
   }
 

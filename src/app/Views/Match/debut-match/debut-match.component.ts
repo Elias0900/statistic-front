@@ -25,10 +25,10 @@ export class DebutMatchComponent implements OnInit{
               private eService: EquipeControllerService,
               private activeRoute: ActivatedRoute) {
   }
+
   ngOnInit(): void {
     this.findMatch()
   }
-
 
 
   findMatch(){

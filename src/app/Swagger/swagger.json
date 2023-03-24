@@ -1,5 +1,3 @@
-
-
 {
   "openapi": "3.0.1",
   "info": {
@@ -15,7 +13,7 @@
   "security": [
     {
       "BearerAuth": [
-
+        
       ]
     }
   ],
@@ -1024,37 +1022,6 @@
         }
       }
     },
-    "/api/total/total-joueur/{totalId}": {
-      "get": {
-        "tags": [
-          "total-controller"
-        ],
-        "operationId": "generateBulletinByStudentAndPromo",
-        "parameters": [
-          {
-            "name": "totalId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/Resource"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/total/rebond/{id}/match/{matchId}": {
       "get": {
         "tags": [
@@ -1366,6 +1333,47 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/StatsDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pdf/total/{joueurId}/{matchId}": {
+      "get": {
+        "tags": [
+          "pdf-controller"
+        ],
+        "operationId": "totalPDF",
+        "parameters": [
+          {
+            "name": "joueurId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "matchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -1715,6 +1723,74 @@
                 "schema": {
                   "type": "integer",
                   "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/match/team/{matchId}": {
+      "get": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "joueurDom",
+        "parameters": [
+          {
+            "name": "matchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/JoueurDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/match/team/ext/{matchId}": {
+      "get": {
+        "tags": [
+          "match-controller"
+        ],
+        "operationId": "joueurExt",
+        "parameters": [
+          {
+            "name": "matchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/JoueurDTO"
+                  }
                 }
               }
             }
@@ -2367,41 +2443,6 @@
               "type": "integer",
               "format": "int64"
             }
-          }
-        }
-      },
-      "InputSource": {
-        "type": "object",
-        "properties": {
-          "publicId": {
-            "type": "string"
-          },
-          "systemId": {
-            "type": "string"
-          },
-          "byteStream": {
-            "type": "object"
-          },
-          "encoding": {
-            "type": "string"
-          },
-          "characterStream": {
-            "type": "object"
-          },
-          "empty": {
-            "type": "boolean"
-          }
-        }
-      },
-      "Resource": {
-        "type": "object",
-        "properties": {
-          "resourceInputSource": {
-            "$ref": "#/components/schemas/InputSource"
-          },
-          "resourceLoadTimeStamp": {
-            "type": "integer",
-            "format": "int64"
           }
         }
       }
