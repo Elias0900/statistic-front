@@ -18,7 +18,7 @@
         <td>{{j.nom}}</td>
         <td>{{j.prenom}}</td>
         <td>{{j.numero}}</td>
-        <td><button class="bouton stats">Stats</button></td>
+        <td><button class="bouton stats" [routerLink]="['/stats', j.id]">Stats</button></td>
         <td><button class="bouton supprimer" (click)="supprimerJoueur(j)">Supprimer</button></td>
         <td><button class="bouton modifier" [routerLink]="['/update-joueurs', j.id]">Modifier</button></td>
       </tr>

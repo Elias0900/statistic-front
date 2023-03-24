@@ -1,1 +1,27 @@
-<p>liste works!</p>
+<div class="card shadow">
+    <app-nav-bar></app-nav-bar>
+     <div class="card-body">
+        <h1 class="liste-des-equipes-text3">Liste des Matchs</h1>
+        <div class="liste-des-equipes-container2">
+          <app-card-match
+            *ngFor="let m of matchs"
+            [accessKey]="m.id"
+            [equipeDomicileIdNomEquipe]="m.equipeDomicileIdNomEquipe"
+            [equipeExterieurIdNomEquipe]="m.equipeExterieurIdNomEquipe"
+            [scoreDomicile]="m.scoreDomicile"
+            [scoreExterieur]="m.scoreExterieur"
+            [routerLink]="['/match', m.id]"
+            [date]="m.date"
+          >
+          </app-card-match>
+        </div>
+    
+   
+       <table class="table table-striped">
+         <ng-template #noJoueurs>
+           <div class="alert-danger">Il n'y a pas de joueurs</div>
+         </ng-template>
+       </table>
+     </div>
+   </div>
+   

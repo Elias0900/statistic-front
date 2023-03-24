@@ -3,7 +3,7 @@ import {EquipeDto} from "../../../services/models/equipe-dto";
 import {Router} from "@angular/router";
 import {ToastService} from "../../../Composant/toast/toast-service";
 import {ToastComponent} from "../../../Composant/toast/toast.component";
-import { EquipeControllerService } from 'src/app/services/services';
+import { EquipeControllerService } from 'src/app/services/services/equipe-controller.service';
 
 
 @Component({

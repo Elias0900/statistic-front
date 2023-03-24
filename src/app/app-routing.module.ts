@@ -10,6 +10,7 @@ import {HomeComponent} from "./Views/home/home.component";
 import {NewMatchComponent} from "./Views/Match/new-match/new-match.component";
 import {DebutMatchComponent} from "./Views/Match/debut-match/debut-match.component";
 import {HistoriqueComponent} from "./Views/Match/historique/historique.component";
+import { ListeComponent } from './Views/Stats/liste/liste.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -27,7 +28,10 @@ const routes: Routes = [
   /** Match **/
   {path: "new-match", component: NewMatchComponent},
   {path: "match/:id", component: DebutMatchComponent},
-  {path: "historique", component: HistoriqueComponent}
+  {path: "historique", component: HistoriqueComponent},
+
+  /**Stats **/
+  {path: "stats/:id", component: ListeComponent}
 
 
 

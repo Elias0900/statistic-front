@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {EquipeControllerService} from "../../../services/services/equipe-controller.service";
 import {EquipeDto} from "../../../services/models/equipe-dto";
-import {MatchControllerService} from "../../../services/services/match-controller.service";
-import {MatchDto} from "../../../services/models/match-dto";
 import {Router} from "@angular/router";
+
+import { MatchDto } from 'src/app/services/models/match-dto';
+import { EquipeControllerService } from 'src/app/services/services/equipe-controller.service';
+import { MatchControllerService } from 'src/app/services/services/match-controller.service';
 
 @Component({
   selector: 'app-new-match',

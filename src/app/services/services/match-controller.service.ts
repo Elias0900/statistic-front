@@ -727,4 +727,57 @@ export class MatchControllerService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation findByEquipeId
+   */
+  static readonly FindByEquipeIdPath = '/api/match/equipe/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `findByEquipeId()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  findByEquipeId$Response(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<MatchDto>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, MatchControllerService.FindByEquipeIdPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<MatchDto>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `findByEquipeId$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  findByEquipeId(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<Array<MatchDto>> {
+
+    return this.findByEquipeId$Response(params,context).pipe(
+      map((r: StrictHttpResponse<Array<MatchDto>>) => r.body as Array<MatchDto>)
+    );
+  }
+
 }
