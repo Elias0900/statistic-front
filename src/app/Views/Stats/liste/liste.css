@@ -1,162 +1,195 @@
-.card.shadow{
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    display: flex;
-    overflow: auto;
-    min-height: 100vh;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-image: linear-gradient(0deg, rgb(189, 195, 199) 0.00%, rgb(44, 62, 80) 100.00%);
+:host {
+  display: contents;
+}
+
+.liste-des-equipes-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-image: linear-gradient(0deg, rgb(189, 195, 199) 0.00%, rgb(44, 62, 80) 100.00%);
+
+}
+
+.liste-des-equipes-header {
+  width: 100%;
+  height: 144px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  min-width: 100%;
+  align-self: stretch;
+  transition: 0.3s;
+  align-items: center;
+  flex-direction: column;
+  padding: 8px 48px;
+  justify-content: center;
+}
+
+.liste-des-equipes-image {
+  height: 2rem;
+}
+
+.liste-des-equipes-separator {
+  width: 100%;
+  height: 1px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  background-color: #D9D9D9;
+}
+
+.liste-des-equipes-nav {
+  flex: 1;
+  height: auto;
+  position: relative;
+  transition: 0.3s;
+}
+
+.liste-des-equipes-button {
+  background-color: transparent;
+  transition: 0.3s;
+  margin-right: 5px;
+  border: solid 1px;
+
+}
+
+.liste-des-equipes-button:hover {
+  transform: scale(1.02);
+  background-color: rgba(77, 77, 77, 0.28);
+  color: antiquewhite;
+}
+
+.liste-des-equipes-accordion-header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.liste-des-equipes-icon {
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+
+.liste-des-equipes-accordion-content {
+  display: flex;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.3s ease-in-out;
+  align-items: center;
+  flex-direction: column;
+}
+
+.liste-des-equipes-nav1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.liste-des-equipes-features {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 8px 8px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.liste-des-equipes-text3 {
+  font-size: 3rem;
+  align-self: center;
+  margin-bottom: 48px;
+}
+
+.liste-des-equipes-container2 {
+  width: 100%;
+  display: flex;
+  grid-column-start: span;
+  grid-gap: 32px;
+  justify-content: center; /* Ajout pour distribuer l'espace entre les colonnes */
+  padding-bottom: 62px;
+  flex-wrap: wrap;
+  align-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+
+.liste-des-equipes-button2 {
+  width: 288px;
+  height: 48px;
+  font-size: 24px;
+  background-color: transparent;
+  transition: 0.3s;
+  margin-right: 5px;
+  border: solid 1px;
+}
+
+.liste-des-equipes-button2:hover {
+  transform: scale(1.02);
+  background-color: rgba(77, 77, 77, 0.28);
+  color: antiquewhite;
+}
+
+@media (max-width: 991px) {
+  .liste-des-equipes-nav1 {
+    padding-top: 16px;
   }
+
+  .liste-des-equipes-text3 {
+    align-self: center;
+  }
+
+  .liste-des-equipes-container2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 767px) {
   .liste-des-equipes-header {
-    width: 100%;
-    height: 144px;
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 100%;
-    min-width: 100%;
-    align-self: stretch;
-    transition: 0.3s;
-    align-items: center;
-    flex-direction: column;
-    padding: 8px 48px;
-    justify-content: center;
+    padding-left: 32px;
+    padding-right: 32px;
   }
-  
-  .liste-des-equipes-image {
-    height: 2rem;
+
+  .liste-des-equipes-separator {
+    margin-top: 24px;
+    margin-bottom: 24px;
   }
-  
-  
-  .liste-des-equipes-button {
-    background-color: transparent;
-    transition: 0.3s;
-    margin-right: 5px;
-    border: solid 1px;
-  
-  }
-  
-  .h2, h2{
-    text-align: center;
-    padding-bottom: 15px;
-    color: #343a40;
-  }
-  
-  .button {
-    background-color: transparent;
-    transition: 0.3s;
-    margin-right: 5px;
-    border: solid 1px;
-  
-  }
-  
-  .button:hover {
-    transform: scale(1.02);
-    background-color: rgba(77, 77, 77, 0.28);
-    color: antiquewhite;
-  }
-  
-  .custom-table {
-    width: 100%;
-    max-width: 100%;
-    background-color: transparent;
-    margin-bottom: 25px;
-  
-  }
-  
-  .bouton{
-    background-color: transparent;
-    transition: 0.3s;
-    border: solid 1px;
-    margin-right: 25px;
-  }
-  
-  .bouton.supprimer:hover{
-    transform: scale(1.02);
-    background-color: rgba(185, 183, 183, 0.28);
-    color: #f1c4c4;
-  }
-  
-  .bouton.stats:hover{
-    transform: scale(1.02);
-    background-color: rgba(185, 183, 183, 0.28);
-    color: #adc2d0;
-  }
-  
-  .bouton.modifier:hover{
-    transform: scale(1.02);
-    background-color: rgba(185, 183, 183, 0.28);
-    color: #548154;
-  }
-  
-  .custom-bouton{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .custom-bouton.bouton{
-    background-color: transparent;
-    transition: 0.3s;
-    border: solid 1px;
-  }
-  
-  .bouton:hover{
-    transform: scale(1.02);
-    background-color: rgba(77, 77, 77, 0.28);
-    color: antiquewhite;
-  }
-  
-  .modal {
+
+  .liste-des-equipes-nav {
     display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
   }
-  
-  .modal.is-active {
+
+  .liste-des-equipes-icon {
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
-  
-  .modal-content {
-    background-color: rgb(151, 154, 164);
-    padding: 1rem;
-    border-radius: 0.3rem;
-    max-width: 30%;
-    max-height: 80%;
-    overflow-y: auto;
+
+  .liste-des-equipes-features {
+    padding-left: 32px;
+    padding-right: 32px;
   }
-  
-  .btn.btn-success.mr-2{
-    margin-right: 10px;
+}
+
+@media (max-width: 479px) {
+  .liste-des-equipes-header {
+    padding: 16px;
   }
-  .modal-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 1rem;
-    font-size: 2rem;
-    color: #fff;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+
+  .liste-des-equipes-separator {
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
-  
-  .modal-close:hover {
-    color: #ccc;
+
+  .liste-des-equipes-features {
+    padding: 32px 16px;
   }
-  
-  .form-control{
-   margin-bottom: 10px;
+
+  .liste-des-equipes-container2 {
+    grid-gap: 8px;
   }
-  
-  
+}
+

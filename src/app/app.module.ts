@@ -24,6 +24,7 @@ import { CardMatchComponent } from './Composant/card-match/card-match.component'
 import { NavBarComponent } from './Views/nav-bar/nav-bar.component';
 import { StatsModalComponent } from './Composant/stats-modal/stats-modal.component';
 import { ListeComponent } from './Views/Stats/liste/liste.component';
+import { StatsJoueurComponent } from './Views/Stats/stats-joueur/stats-joueur.component';
 
 
 
@@ -48,6 +49,7 @@ import { ListeComponent } from './Views/Stats/liste/liste.component';
     NavBarComponent,
     StatsModalComponent,
     ListeComponent,
+    StatsJoueurComponent,
   ],
   imports: [
     BrowserModule,

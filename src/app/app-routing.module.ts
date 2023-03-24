@@ -11,6 +11,7 @@ import {NewMatchComponent} from "./Views/Match/new-match/new-match.component";
 import {DebutMatchComponent} from "./Views/Match/debut-match/debut-match.component";
 import {HistoriqueComponent} from "./Views/Match/historique/historique.component";
 import { ListeComponent } from './Views/Stats/liste/liste.component';
+import { StatsJoueurComponent } from './Views/Stats/stats-joueur/stats-joueur.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -31,7 +32,8 @@ const routes: Routes = [
   {path: "historique", component: HistoriqueComponent},
 
   /**Stats **/
-  {path: "stats/:id", component: ListeComponent}
+  {path: "stats/:id", component: ListeComponent},
+  {path: "stats-joueur/:mid/:jid", component: StatsJoueurComponent},
 
 
 

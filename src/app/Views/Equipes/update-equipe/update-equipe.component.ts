@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {EquipeDto} from "../../../services/models/equipe-dto";
-import {EquipeControllerService} from "../../../services/services/equipe-controller.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import { EquipeControllerService } from 'src/app/services/services/equipe-controller.service';
 
 @Component({
   selector: 'app-update-equipe',
